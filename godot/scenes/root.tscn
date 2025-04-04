@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvjj7artcvxcb"]
+
+[ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
+[ext_resource type="Environment" uid="uid://dk12qnwxj2qgv" path="res://default_env.tres" id="2_twpsu"]
+[ext_resource type="Script" uid="uid://b6bkbbhcwuh8i" path="res://game/FreeLookCamera.gd" id="3_lrqlo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrqlo"]
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_j5px3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 3.70178, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_twpsu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 2)
+script = ExtResource("3_lrqlo")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World"]
+mesh = SubResource("BoxMesh_lrqlo")
+
+[node name="Player" type="CharacterBody3D" parent="."]
