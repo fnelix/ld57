@@ -22,9 +22,12 @@ Global="*res://game/Global.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=390
-window/stretch/mode="canvas_items"
+window/size/viewport_width=640
+window/size/viewport_height=295
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
 
 [gui]
 
