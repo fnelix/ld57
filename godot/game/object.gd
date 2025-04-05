@@ -1,4 +1,4 @@
 extends RigidBody2D
 
 func _ready() -> void:
-	pass
+	set_meta("type", "object")
