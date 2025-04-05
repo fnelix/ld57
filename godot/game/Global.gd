@@ -2,8 +2,8 @@ extends Node
 
 
 var world : Node
-var player : Node3D
-var camera : Node3D
+var player : Node2D
+var camera : Node2D
 
 ##
 var is_touch = false
@@ -18,23 +18,13 @@ func setup_nodes():
 	if !player:
 		print("setup_nodes(): player node not found")
 		
-	camera = get_node("/root/root/Camera3D")
+	camera = get_node("/root/root/Camera")
 	if !camera:
 		print("setup_nodes(): camera node not found")
 		
 
 func _process(_delta):
 	pass
-
-	
-
-# helper: align basis y to new_y
-func align_with_y(xform, new_y):
-	xform.basis.y = new_y
-	xform.basis.x = -xform.basis.z.cross(new_y)
-	xform.basis = xform.basis.orthonormalized()
-	return xform
-
 
 #var text_scene = preload("res://scenes/Label3D.tscn")
 #
@@ -49,23 +39,6 @@ func align_with_y(xform, new_y):
 #	txt.set_color(color)
 #	txt.go()
 	
-
-func adjust_pos_to_screen(pos : Vector3):
-	
-	var keep_y = pos.y
-
-	pos.y = 0.0
-
-	#adjust position towards world center!
-
-	#print("before:",pos, "length:",pos.length())
-	var adj = clamp(pos.length_squared()/3000.0,-0.3,0.3)
-	pos -= pos * adj
-	#print("adj:",pos,adj)
-	
-	pos.y = keep_y
-	
-	return pos
 
 # check for valid instance which is not queued for deletion
 func check_inst(inst:Node, check_type_meta:bool = false)->bool:

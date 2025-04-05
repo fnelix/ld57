@@ -22,11 +22,9 @@ Global="*res://game/Global.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=295
-window/size/resizable=false
-window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/size/viewport_width=295
+window/size/viewport_height=640
+window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 
 [gui]
@@ -93,6 +91,12 @@ click={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Bag"
+2d_physics/layer_2="Objects"
+2d_physics/layer_3="Res1"
 
 [physics]
 
