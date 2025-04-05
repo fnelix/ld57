@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://t3dhgf7l18fd"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_hvrtr"]
+[ext_resource type="Texture2D" uid="uid://blxqh37bgynu7" path="res://assets/sprites/items/ballpen_empty.png" id="2_hvrtr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfruu"]
+radius = 16.0
+height = 364.0
+
+[node name="ballpen_empty" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_hvrtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hvrtr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_cfruu")

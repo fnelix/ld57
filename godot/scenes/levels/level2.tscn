@@ -1,26 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://dl8f35vxgoolt"]
+[gd_scene load_steps=11 format=3 uid="uid://dl8f35vxgoolt"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_hkuam"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_f3b2k"]
-[ext_resource type="Texture2D" uid="uid://cy22asdl3c1kt" path="res://assets/sprites/layouts/bagexample03.png" id="3_sqrei"]
-[ext_resource type="PackedScene" uid="uid://c21830akv3dbj" path="res://scenes/items/lipstick.tscn" id="4_yhrca"]
-[ext_resource type="PackedScene" uid="uid://bbve2ifi5kv63" path="res://scenes/items/pacifier.tscn" id="5_4eecq"]
-[ext_resource type="PackedScene" uid="uid://ousuj6lmux6h" path="res://scenes/items/cigarette.tscn" id="6_b3p8y"]
-[ext_resource type="PackedScene" uid="uid://jo70xi518d3i" path="res://scenes/items/cigarette_broken.tscn" id="7_bxuut"]
-[ext_resource type="PackedScene" uid="uid://b0jaa5vcg1oeg" path="res://scenes/items/hair01.tscn" id="8_g04qb"]
-[ext_resource type="PackedScene" uid="uid://ou6kmawtmyrp" path="res://scenes/items/earpod_L.tscn" id="9_ida7w"]
-[ext_resource type="PackedScene" uid="uid://b6b62m34ca1n2" path="res://scenes/items/earpod_R.tscn" id="10_4wmb1"]
-[ext_resource type="PackedScene" uid="uid://bxcqhkqhwyogs" path="res://scenes/items/match.tscn" id="11_5qtw0"]
-[ext_resource type="PackedScene" uid="uid://dkild3ib6qlj0" path="res://scenes/items/keys.tscn" id="12_xidjn"]
-[ext_resource type="PackedScene" uid="uid://b002dpewk2xvn" path="res://scenes/items/hair03.tscn" id="13_45jfw"]
-[ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="14_8kpy5"]
-[ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="15_ycs18"]
+[ext_resource type="Texture2D" uid="uid://c6xwrcch8iivy" path="res://assets/sprites/backgrounds/bg_jeans.png" id="3_71baw"]
+[ext_resource type="PackedScene" uid="uid://gr0q2gtf1mve" path="res://scenes/items/jellybean_banana.tscn" id="4_b0vvs"]
+[ext_resource type="PackedScene" uid="uid://bfg5vjm0yompf" path="res://scenes/items/jellybean_blueberry.tscn" id="5_oyk6k"]
+[ext_resource type="PackedScene" uid="uid://cih3tou1qx61c" path="res://scenes/items/jellybean_lime.tscn" id="6_gycjm"]
+[ext_resource type="PackedScene" uid="uid://b640akyp7j6eo" path="res://scenes/items/jellybean_orange.tscn" id="7_8i1lk"]
+[ext_resource type="PackedScene" uid="uid://dwf8t7g8qdjqx" path="res://scenes/items/jellybean_raspberry.tscn" id="8_hgky1"]
+[ext_resource type="PackedScene" uid="uid://calyc143ri77r" path="res://scenes/items/jellybean_sherry.tscn" id="9_b4tpv"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_f3b2k")
-prompt = "Hurry, the baby is crying!
-Grab the pacifier!"
-win_objects = Array[String](["pacifier"])
+prompt = "Ew, no!
+I only like the blue ones!
+
+"
+win_objects = Array[String](["blue"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]
@@ -28,13 +24,13 @@ script = ExtResource("1_hkuam")
 levelinfo = SubResource("Resource_ps2vj")
 
 [node name="Limit_out" type="Line2D" parent="."]
-position = Vector2(1, -239)
+position = Vector2(7, -167)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
 [node name="Limit_win" type="Line2D" parent="."]
-position = Vector2(2, -208)
+position = Vector2(7, -147)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(0, 0.780392, 0, 1)
@@ -44,57 +40,176 @@ collision_mask = 7
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
-polygon = PackedVector2Array(-129, -194, -126, -51, -127, 159, -110, 195, -90, 205, -62, 212, 9, 214, 55, 214, 103, 207, 133, 123, 127, 23, 129, -166, 127, -196, 124, -211, 132, -213, 135, -171, 133, 25, 139, 141, 128, 197, 106, 219, 11, 223, -73, 220, -97, 212, -119, 200, -132, 164, -131, -50, -134, -195)
+polygon = PackedVector2Array(-103, -111, -106, -90, -108, 158, -100, 186, 0, 235, 77, 197, 107, 174, 106, -114, 126, -114, 126, 159, 124, 188, 92, 213, 0, 255, -119, 200, -126, 163, -125, -115)
 
 [node name="Bagexample03" type="Sprite2D" parent="Bag"]
 z_index = -8
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_sqrei")
+texture = ExtResource("3_71baw")
 metadata/_edit_lock_ = true
 
-[node name="Lipstick" parent="." instance=ExtResource("4_yhrca")]
-position = Vector2(7, 162)
-rotation = 1.57191
+[node name="Jellybean_banana" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(-42, 176)
+rotation = -0.959785
 
-[node name="Pacifier" parent="." instance=ExtResource("5_4eecq")]
-position = Vector2(-68, 80)
+[node name="Jellybean_blueberry" parent="Bag" instance=ExtResource("5_oyk6k")]
+position = Vector2(2, 207)
 
-[node name="Cigarette" parent="." instance=ExtResource("6_b3p8y")]
-position = Vector2(67, 134)
-rotation = 2.03338
+[node name="Jellybean_banana2" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(55, 149)
+rotation = 2.35954
 
-[node name="Cigarette_broken" parent="." instance=ExtResource("7_bxuut")]
-position = Vector2(28, 49)
-rotation = 0.770895
+[node name="Jellybean_lime" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(-44, 138)
+rotation = -1.21614
 
-[node name="Hair01" parent="." instance=ExtResource("8_g04qb")]
-position = Vector2(16, 95)
-rotation = 0.724035
+[node name="Jellybean_orange" parent="Bag" instance=ExtResource("7_8i1lk")]
+position = Vector2(-16, 183)
+rotation = -0.55887
 
-[node name="earpod_L" parent="." instance=ExtResource("9_ida7w")]
-position = Vector2(86, 82)
+[node name="Jellybean_raspberry" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(49, 193)
+rotation = -2.76216
 
-[node name="earpod_L2" parent="." instance=ExtResource("10_4wmb1")]
-position = Vector2(-44, 25)
+[node name="Jellybean_sherry" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(24, 163)
 
-[node name="Match" parent="." instance=ExtResource("11_5qtw0")]
-position = Vector2(-22, 198)
-rotation = 1.66655
+[node name="Jellybean_sherry2" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(82, 138)
 
-[node name="Match2" parent="." instance=ExtResource("11_5qtw0")]
-position = Vector2(78, 2.00002)
-rotation = 1.70333
+[node name="Jellybean_banana3" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(78, 171)
 
-[node name="Keys" parent="." instance=ExtResource("12_xidjn")]
-position = Vector2(-13, -82)
-rotation = 1.54698
+[node name="Jellybean_orange2" parent="Bag" instance=ExtResource("7_8i1lk")]
+position = Vector2(-72, 168)
 
-[node name="Hair03" parent="." instance=ExtResource("13_45jfw")]
-position = Vector2(-116, 129)
+[node name="Jellybean_lime2" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(7, 146)
+rotation = -2.91182
 
-[node name="Hair02" parent="." instance=ExtResource("14_8kpy5")]
-position = Vector2(102, 110)
-rotation = -2.00549
+[node name="Jellybean_raspberry2" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(-18, 123)
+rotation = -0.786631
 
-[node name="key01" parent="." instance=ExtResource("15_ycs18")]
-position = Vector2(-85, 165)
+[node name="Jellybean_banana5" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(40, 19)
+rotation = 2.00228
+
+[node name="Jellybean_lime4" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(-81, 52)
+rotation = -1.5734
+
+[node name="Jellybean_orange3" parent="Bag" instance=ExtResource("7_8i1lk")]
+position = Vector2(-85, 83)
+rotation = -3.08861
+
+[node name="Jellybean_raspberry5" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(53, 50)
+rotation = -3.11943
+
+[node name="Jellybean_sherry4" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(-56, 28)
+rotation = -0.357266
+
+[node name="Jellybean_sherry5" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(88, 29)
+rotation = -0.357266
+
+[node name="Jellybean_banana6" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(15, 47)
+rotation = -0.357266
+
+[node name="Jellybean_orange4" parent="Bag" instance=ExtResource("7_8i1lk")]
+position = Vector2(-52, 69)
+rotation = -0.357266
+
+[node name="Jellybean_lime5" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(-27, 39)
+rotation = -3.26908
+
+[node name="Jellybean_raspberry6" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(-4, 22)
+rotation = -1.1439
+
+[node name="Jellybean_lime3" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(83, 106)
+
+[node name="Jellybean_orange5" parent="Bag" instance=ExtResource("7_8i1lk")]
+position = Vector2(-40, 101)
+rotation = -0.357266
+
+[node name="Jellybean_lime6" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(-50, -43)
+rotation = -3.26908
+
+[node name="Jellybean_raspberry7" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(17, -25)
+rotation = -1.1439
+
+[node name="Jellybean_lime7" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(66, 1)
+
+[node name="Jellybean_raspberry3" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(-9, -19)
+rotation = 2.03918
+
+[node name="Jellybean_banana7" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(34, -62)
+rotation = 2.00228
+
+[node name="Jellybean_sherry6" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(82, -52)
+rotation = -0.357266
+
+[node name="Jellybean_raspberry8" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(-10, -59)
+rotation = -1.1439
+
+[node name="Jellybean_raspberry9" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(11, -106)
+rotation = -1.1439
+
+[node name="Jellybean_lime8" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(63, -88)
+
+[node name="Jellybean_raspberry10" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(-74, -105)
+rotation = 2.03918
+
+[node name="Jellybean_sherry3" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(-81, 9)
+
+[node name="Jellybean_raspberry4" parent="Bag" instance=ExtResource("8_hgky1")]
+position = Vector2(-41, -12)
+
+[node name="Jellybean_banana4" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(-75, -24)
+rotation = -1.27337
+
+[node name="Jellybean_banana8" parent="Bag" instance=ExtResource("4_b0vvs")]
+position = Vector2(-70, -68)
+
+[node name="Jellybean_lime9" parent="Bag" instance=ExtResource("6_gycjm")]
+position = Vector2(-28, -92)
+
+[node name="Jellybean_orange6" parent="Bag" instance=ExtResource("7_8i1lk")]
+position = Vector2(50, -34)
+
+[node name="Jellybean_sherry7" parent="Bag" instance=ExtResource("9_b4tpv")]
+position = Vector2(50, -114)
+
+[node name="Jellybean_raspberry" parent="." instance=ExtResource("8_hgky1")]
+position = Vector2(-17, 79)
+
+[node name="Jellybean_lime" parent="." instance=ExtResource("6_gycjm")]
+position = Vector2(12, 91)
+
+[node name="Jellybean_banana" parent="." instance=ExtResource("4_b0vvs")]
+position = Vector2(-83, 124)
+
+[node name="Jellybean_orange" parent="." instance=ExtResource("7_8i1lk")]
+position = Vector2(52, 97)
+
+[node name="Jellybean_raspberry2" parent="." instance=ExtResource("8_hgky1")]
+position = Vector2(81, 69)
+rotation = -1.41114

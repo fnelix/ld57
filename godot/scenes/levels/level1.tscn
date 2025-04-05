@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdbpwpueqerls"]
+[gd_scene load_steps=17 format=3 uid="uid://cdbpwpueqerls"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_jprdt"]
 [ext_resource type="Texture2D" uid="uid://cy22asdl3c1kt" path="res://assets/sprites/layouts/bagexample03.png" id="1_x6ivy"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://b002dpewk2xvn" path="res://scenes/items/hair03.tscn" id="11_nfihu"]
 [ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="12_lgguw"]
 [ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="13_lgguw"]
-[ext_resource type="PackedScene" uid="uid://bln7ttwdnt2tc" path="res://scenes/items/jellybean.tscn" id="16_sbmf2"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_ps2vj")
@@ -76,18 +75,14 @@ rotation = 0.724035
 position = Vector2(86, 82)
 
 [node name="earpod_L2" parent="." instance=ExtResource("8_plydf")]
-position = Vector2(-44, 25)
+position = Vector2(-73, 13)
 
 [node name="Match" parent="." instance=ExtResource("9_plydf")]
 position = Vector2(-22, 198)
 rotation = 1.66655
 
-[node name="Match2" parent="." instance=ExtResource("9_plydf")]
-position = Vector2(78, 2.00002)
-rotation = 1.70333
-
 [node name="Keys" parent="." instance=ExtResource("10_5ntmo")]
-position = Vector2(-13, -82)
+position = Vector2(-18, -62)
 rotation = 1.54698
 
 [node name="Hair03" parent="." instance=ExtResource("11_nfihu")]
@@ -99,6 +94,3 @@ rotation = -2.00549
 
 [node name="key01" parent="." instance=ExtResource("13_lgguw")]
 position = Vector2(-85, 165)
-
-[node name="Jellybean" parent="." instance=ExtResource("16_sbmf2")]
-position = Vector2(64, -95)

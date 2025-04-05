@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfruu"]
 radius = 8.0
-height = 136.0
+height = 132.0
 
 [node name="Hair01" type="RigidBody2D"]
 collision_layer = 2
