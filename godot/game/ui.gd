@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 
 func show_level_win(value: bool):
 	$MarginContainer/LevelWinPanel.visible = value
+	$MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/LabelText.text = "Good"
 
 
 func _on_button_continue_pressed() -> void:

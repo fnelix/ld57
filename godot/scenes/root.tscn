@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
 [ext_resource type="Script" uid="uid://dnfwi8l0y3whx" path="res://game/player.gd" id="2_lrqlo"]
+[ext_resource type="Texture2D" uid="uid://djl0rrpp13d6x" path="res://assets/sprites/hand/hand_closed.png" id="5_7pvxh"]
 [ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="5_kycxp"]
-[ext_resource type="Texture2D" uid="uid://bry64lo64p6e6" path="res://assets/sprites/hand/hand_open.png" id="6_kycxp"]
 [ext_resource type="Script" uid="uid://8jnjvhnspu4e" path="res://game/ui.gd" id="7_5sfjl"]
-[ext_resource type="FontFile" uid="uid://ben3gdxwalkeb" path="res://assets/fonts/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="7_j287u"]
+[ext_resource type="FontFile" uid="uid://blti7cl6jhtgx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="7_j287u"]
 [ext_resource type="Texture2D" uid="uid://cuv73ahlrgyrm" path="res://assets/sprites/layouts/speechbubble.png" id="8_3hfy5"]
 [ext_resource type="StyleBox" path="res://assets/styleboxflat_empty.tres" id="9_7pvxh"]
 [ext_resource type="StyleBox" uid="uid://cfbki43yl7c56" path="res://assets/stylebox1.tres" id="10_7pvxh"]
@@ -15,7 +15,7 @@
 radius = 90.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j287u"]
-radius = 40.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jh1ax"]
 radius = 58.1378
@@ -62,20 +62,20 @@ script = ExtResource("5_kycxp")
 [node name="Sprite2D" type="Sprite2D" parent="HandAssembly/Hand"]
 z_index = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_kycxp")
+texture = ExtResource("5_7pvxh")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HandAssembly/Hand"]
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 166, 94, 272, 138, 412, 80, 436, 50, 356, -44, 372, -78, 428, -88, 298, -64, 170)
+polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 177.66, 94, 272, 104, 435.66, 80, 436, 50, 365.66, -44, 372, -50, 417.66, -82, 425.66, -88, 298, -86, 245.66, -64, 170, -88, -196.34)
 
 [node name="Area2D_Grab" type="Area2D" parent="HandAssembly/Hand"]
-position = Vector2(0, 246)
+position = Vector2(-4, 260.83)
 collision_layer = 3
 collision_mask = 3
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Grab"]
-position = Vector2(6, -24.17)
+position = Vector2(4, -22)
 shape = SubResource("CircleShape2D_j287u")
 debug_color = Color(0.970241, 0, 0.456039, 0.42)
 
@@ -126,8 +126,8 @@ texture = ExtResource("8_3hfy5")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 

@@ -30,10 +30,10 @@ func _physics_process(delta: float) -> void:
 		#self.global_position = Global.player.global_position
 		#move_and_collide(motion)
 
-	if self.global_position.x < -100:
-		self.global_position.x = -100
-	elif self.global_position.x > 100:
-		self.global_position.x = 100
+	if self.global_position.x < -110:
+		self.global_position.x = -110
+	elif self.global_position.x > 110:
+		self.global_position.x = 110
 
 	if self.global_position.y < -500:
 		self.global_position.y = -500

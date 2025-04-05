@@ -18,7 +18,7 @@ var hold_bodies = []
 var hold_joints = []
 
 func _ready() -> void:
-	hand = get_node("/root/root/HandAssembly/Hand")
+	hand = get_node("../Hand")
 
 	
 func _input(event: InputEvent) -> void:
@@ -59,8 +59,8 @@ func reset():
 func _add_joint(body, pos):
 	var new_joint = DampedSpringJoint2D.new()
 	new_joint.length = 2;
-	new_joint.stiffness = 24.0
-	new_joint.damping = 16.0
+	new_joint.stiffness = 24.0 * 2
+	new_joint.damping = 16.0 * 2
 	
 	var target = self
 	
