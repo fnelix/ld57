@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=10 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://dnfwi8l0y3whx" path="res://game/player.gd" id="2_lrqlo"]
 [ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="2_sqa0i"]
 [ext_resource type="Texture2D" uid="uid://bjvm72vfj3qt1" path="res://assets/sprites/items/lipstick.png" id="3_jh1ax"]
+[ext_resource type="Texture2D" uid="uid://cy22asdl3c1kt" path="res://assets/sprites/layouts/bagexample03.png" id="4_j287u"]
 [ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="5_kycxp"]
 [ext_resource type="Texture2D" uid="uid://bry64lo64p6e6" path="res://assets/sprites/hand/hand_open.png" id="6_kycxp"]
 
@@ -72,13 +73,15 @@ polygon = PackedVector2Array(0, -136, -28, -132, -36, -122, -34, 114, -32, 124, 
 
 [node name="Bag" type="StaticBody2D" parent="World"]
 position = Vector2(-1, -17)
-scale = Vector2(0.860385, 0.941417)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="World/Bag"]
-polygon = PackedVector2Array(-155, -363, -132, 306, 129, 306, 162, -351, 289, -350, 260, 430, -214, 420, -226, -368)
+polygon = PackedVector2Array(-129, -194, -126, -51, -127, 159, -110, 195, -90, 205, -62, 212, 9, 214, 55, 214, 103, 207, 133, 123, 127, 23, 129, -166, 127, -196, 124, -211, 132, -213, 135, -171, 133, 25, 139, 141, 128, 197, 106, 219, 11, 223, -73, 220, -97, 212, -119, 200, -132, 164, -131, -50, -134, -195)
 
-[node name="Polygon2D" type="Polygon2D" parent="World/Bag"]
-polygon = PackedVector2Array(-156, -363, -131, 306, 128, 307, 162, -351, 635.762, -353.722, 634.6, 472.692, -624.139, 475.878, -626.464, -359.033)
+[node name="Bagexample03" type="Sprite2D" parent="World/Bag"]
+z_index = -8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_j287u")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D_Drag" type="Polygon2D" parent="World"]
 visible = false
@@ -111,16 +114,11 @@ damping = 16.0
 position = Vector2(14, 194)
 shape = SubResource("CircleShape2D_kycxp")
 
-[node name="Hand" type="RigidBody2D" parent="."]
+[node name="Hand" type="CharacterBody2D" parent="."]
 position = Vector2(0, -319)
 collision_layer = 3
 collision_mask = 3
-gravity_scale = 0.0
-can_sleep = false
-lock_rotation = true
-continuous_cd = 2
-linear_damp = 1.0
-angular_velocity = 0.0174533
+motion_mode = 1
 script = ExtResource("5_kycxp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
@@ -133,7 +131,7 @@ scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 166, 94, 272, 138, 412, 80, 436, 50, 356, -44, 372, -78, 428, -88, 298, -64, 170)
 
 [node name="Area2D" type="Area2D" parent="Hand"]
-position = Vector2(-3, 246)
+position = Vector2(0, 246)
 collision_layer = 3
 collision_mask = 3
 monitorable = false

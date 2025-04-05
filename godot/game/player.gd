@@ -48,11 +48,11 @@ func _add_joint(body, pos):
 	new_joint.stiffness = 240.0
 	new_joint.damping = 160.0
 	
-	var target = self
+	var target = hand
 	
 	target.add_child(new_joint)
 	new_joint.global_position = pos
-	new_joint.disable_collision = false
+	new_joint.disable_collision = true
 	
 	new_joint.node_a = target.get_path()
 	new_joint.node_b = body.get_path()
