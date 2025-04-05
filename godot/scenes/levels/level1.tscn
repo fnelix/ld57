@@ -20,7 +20,7 @@
 script = ExtResource("2_ps2vj")
 prompt = "Quick, I need a smoke!
 Get me a cigarette and match."
-win_objects = Array[String](["Match", "Cigarette"])
+win_objects = Array[String](["match", "cigarette"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]

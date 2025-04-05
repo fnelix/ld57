@@ -35,8 +35,10 @@ func set_limit_out(val):
 	limit_out = val
 
 # object below was ok, step to win
-func _check_object_success():
-	pass
+func _check_object_success(i):
+	var name = level_info.win_objects[i]
+	
+	Global.ui.mod_prompt_text(name)
 	
 	
 
@@ -56,7 +58,7 @@ func check_object(obj : Node):
 					if name.to_lower().contains(level_info.win_objects[i].to_lower()):
 						level_items_done[i] = true
 						
-						_check_object_success()
+						_check_object_success(i)
 						
 						found_one = true
 						break

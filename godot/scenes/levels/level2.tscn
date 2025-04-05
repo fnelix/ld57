@@ -20,7 +20,7 @@
 script = ExtResource("2_f3b2k")
 prompt = "Hurry, the baby is crying!
 Grab the pacifier!"
-win_objects = Array[String](["Pacifier"])
+win_objects = Array[String](["pacifier"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]
