@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=9 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://dnfwi8l0y3whx" path="res://game/player.gd" id="2_lrqlo"]
 [ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="2_sqa0i"]
 [ext_resource type="Texture2D" uid="uid://bjvm72vfj3qt1" path="res://assets/sprites/items/lipstick.png" id="3_jh1ax"]
+[ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="5_kycxp"]
 [ext_resource type="Texture2D" uid="uid://bry64lo64p6e6" path="res://assets/sprites/hand/hand_open.png" id="6_kycxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kycxp"]
-radius = 100.0
+radius = 90.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j287u"]
-radius = 48.0
+radius = 40.0
 
 [node name="root" type="Node2D"]
 script = ExtResource("1_j5px3")
@@ -25,6 +26,8 @@ scale = Vector2(1, 0.965926)
 position = Vector2(-58, 39)
 collision_layer = 2
 collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
 script = ExtResource("2_sqa0i")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Lipstick"]
@@ -35,53 +38,90 @@ texture = ExtResource("3_jh1ax")
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(0, -136, -28, -132, -36, -122, -34, 114, -32, 124, -28, 130, -10, 136, 18, 136, 30, 132, 36, 118, 34, -122, 32, -130, 26, -134)
 
+[node name="Lipstick2" type="RigidBody2D" parent="World"]
+position = Vector2(63, 56)
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("2_sqa0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Lipstick2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jh1ax")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Lipstick2"]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(0, -136, -28, -132, -36, -122, -34, 114, -32, 124, -28, 130, -10, 136, 18, 136, 30, 132, 36, 118, 34, -122, 32, -130, 26, -134)
+
+[node name="Lipstick3" type="RigidBody2D" parent="World"]
+position = Vector2(6, 74)
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("2_sqa0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Lipstick3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jh1ax")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Lipstick3"]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(0, -136, -28, -132, -36, -122, -34, 114, -32, 124, -28, 130, -10, 136, 18, 136, 30, 132, 36, 118, 34, -122, 32, -130, 26, -134)
+
 [node name="Bag" type="StaticBody2D" parent="World"]
 position = Vector2(-1, -17)
 scale = Vector2(0.860385, 0.941417)
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="World/Bag"]
 polygon = PackedVector2Array(-155, -363, -132, 306, 129, 306, 162, -351, 289, -350, 260, 430, -214, 420, -226, -368)
 
 [node name="Polygon2D" type="Polygon2D" parent="World/Bag"]
-polygon = PackedVector2Array(-156, -363, -131, 306, 128, 307, 162, -351, 289, -350, 259, 428, -215, 422, -229, -367)
+polygon = PackedVector2Array(-156, -363, -131, 306, 128, 307, 162, -351, 635.762, -353.722, 634.6, 472.692, -624.139, 475.878, -626.464, -359.033)
+
+[node name="Polygon2D_Drag" type="Polygon2D" parent="World"]
+visible = false
+z_index = -6
+color = Color(0, 0.629745, 0.469949, 1)
+polygon = PackedVector2Array(-148, -361, -138, 274, 106, 270, 138, -353)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-1, -319)
 collision_layer = 8
 collision_mask = 8
 input_pickable = true
-motion_mode = 1
 script = ExtResource("2_lrqlo")
 
 [node name="DampedSpringJoint2DTop" type="DampedSpringJoint2D" parent="Player"]
-position = Vector2(25, 21)
+position = Vector2(-2, -144)
 node_a = NodePath("..")
-node_b = NodePath("../../Hand")
 length = 2.0
 stiffness = 24.0
 damping = 16.0
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Player"]
-position = Vector2(68, 133)
+position = Vector2(3, 167)
 node_a = NodePath("..")
-node_b = NodePath("../../Hand")
 length = 4.0
 stiffness = 16.0
 damping = 16.0
 
 [node name="CollisionShape2D_Drag" type="CollisionShape2D" parent="Player"]
-position = Vector2(17, 180)
+position = Vector2(14, 194)
 shape = SubResource("CircleShape2D_kycxp")
 
 [node name="Hand" type="RigidBody2D" parent="."]
 position = Vector2(0, -319)
 collision_layer = 3
 collision_mask = 3
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
 continuous_cd = 2
-contact_monitor = true
 linear_damp = 1.0
-angular_damp = 1.0
+angular_velocity = 0.0174533
+script = ExtResource("5_kycxp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 z_index = 2
@@ -90,13 +130,16 @@ texture = ExtResource("6_kycxp")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand"]
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-113.739, -638.075, -114, -600.9, -103.8, -519, -101, -487, -93, -141, -93, -122.9, -78, 34.1, -64, 136.3, -64, 158, -71, 189.6, -89.4, 244, -95.7, 271, -98, 283.9, -98, 299.1, -92.8, 347, -92, 380.6, -98, 407.8, -112, 446.6, -108, 462.9, -101, 470.5, -80.3, 474, -74.1, 471, -60.1, 454, -50.7, 437, -36, 371.4, -28, 353.3, -12, 350, 11.3739, 353.22, 30.8, 364, 46, 392.5, 62.4, 415.3, 51.5, 451, 52, 465.3, 60.3, 475, 67.7, 475, 79.4, 466.3, 80, 470, 70.3, 478, 57, 490, 57, 499.7, 63.5, 508.4, 60, 520.7, 60, 535.7, 63, 542.1, 73.4, 549, 79.8, 549, 90.991, 535.527, 100, 521.4, 117, 494.6, 128.8, 481, 140.1, 465, 149.4, 445, 152.8, 430, 151, 399.6, 123.4, 331, 119, 288.7, 114, 270, 79.8, 233, 56, 204, 43.2, 180, 38.1, 157, 52.9, -101, 65, -355, 68, -478, 68, -573.1, 64, -626, 61, -640)
+polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 166, 94, 272, 138, 412, 80, 436, 50, 356, -44, 372, -78, 428, -88, 298, -64, 170)
 
 [node name="Area2D" type="Area2D" parent="Hand"]
 position = Vector2(-3, 246)
+collision_layer = 3
+collision_mask = 3
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D"]
+position = Vector2(8, -25)
 shape = SubResource("CircleShape2D_j287u")
 
 [connection signal="mouse_entered" from="Player" to="Player" method="_on_mouse_entered"]
