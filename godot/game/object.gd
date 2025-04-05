@@ -33,20 +33,42 @@ func touch_start():
 func touch_end():
 	if not is_out:
 		target_color = Color.BLACK
+		
+		
+func _check_me():
+	var res = false
+	
+	# check win also!
+	if not is_checked:
+		is_checked = true
+		res = Global.score.check_object(self)
+		
+	if res: # was winning object
+		self.collision_layer = 16
+		self.collision_mask = 0
+		is_out = true
+		
+		## party
+		self.gravity_scale = 0.0
+		
+		self.z_index = 8
+		var tween = self.create_tween()
+		tween.tween_property(self,"scale", Vector2(4,4), 0.5).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		tween.set_parallel(true)
+		tween.tween_property(self,"rotation", deg_to_rad(360), 0.8).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(self,"modulate", Color.TRANSPARENT, 0.5).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		
+		
+		
+	
 
 func _physics_process(delta: float) -> void:
 	
 	if self.global_position.y < Global.score.limit_win:
-		if not is_checked:
-			is_checked = true
-			Global.score.check_object(self)
-		pass
+		_check_me()
 		
 	if self.global_position.y < Global.score.limit_out:
-		# check win also!
-		if not is_checked:
-			is_checked = true
-			Global.score.check_object(self)
+		_check_me() # check object also if limit out
 		
 		Global.player._on_area_2d_body_exited(self)
 		self.collision_layer = 16

@@ -11,6 +11,14 @@ func time2hhmmss(s: float) -> String:
 func set_prompt_text(text):
 	$MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text = text
 
+func mod_prompt_text(name):
+	var text : String = $MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text 
+	
+	text = text.replacen(name, "[s]"+name+"[/s]")
+	
+	$MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text = text
+	
+
 func _process(delta: float) -> void:
 	$MarginContainer/VBoxContainer/Label.text = "%s " % [ time2hhmmss(Global.score.level_time)]
 

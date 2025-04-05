@@ -131,7 +131,8 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LabelText" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="LabelText_alt" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+visible = false
 z_index = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -139,6 +140,18 @@ theme_override_fonts/font = ExtResource("7_j287u")
 theme_override_font_sizes/font_size = 32
 text = "The baby is crying.
 Quick, where is the pacifier!"
+
+[node name="LabelText" type="RichTextLabel" parent="UI/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+z_index = 8
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_j287u")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "The baby is crying.
+Quick, where is the pacifier!"
+scroll_active = false
+shortcut_keys_enabled = false
 
 [node name="HSeparator2" type="HSeparator" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
