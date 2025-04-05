@@ -117,7 +117,7 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
-2d/physics_engine="Rapier2D"
+common/physics_interpolation=true
 common/enable_pause_aware_picking=true
 
 [rendering]

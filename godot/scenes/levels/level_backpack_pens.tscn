@@ -13,9 +13,9 @@
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_chrt7")
-prompt = "Quick, I need a smoke!
-Get me a cigarette and match."
-win_objects = Array[String](["match", "cigarette"])
+prompt = "Oh no! The dog ate my homework!
+I need my one full pen!"
+win_objects = Array[String](["full"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]

@@ -70,8 +70,8 @@ polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 177.66, 94, 272
 
 [node name="Area2D_Grab" type="Area2D" parent="HandAssembly/Hand"]
 position = Vector2(-4, 260.83)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Grab"]
@@ -80,6 +80,8 @@ shape = SubResource("CircleShape2D_j287u")
 debug_color = Color(0.970241, 0, 0.456039, 0.42)
 
 [node name="Area2D_Feel" type="Area2D" parent="HandAssembly/Hand"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Feel"]
 position = Vector2(17, 211.83)

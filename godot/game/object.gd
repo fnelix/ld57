@@ -9,7 +9,7 @@ var is_checked: bool = false
 func _ready() -> void:
 	set_meta("type", "object")
 	self.collision_layer = pow(2,1)
-	
+	self.collision_mask = pow(2,0) + pow(2,1) + pow(2,2) + pow(2,3) + pow(2,4)
 	target_color = Color.BLACK
 	self.modulate = target_color
 
@@ -46,7 +46,7 @@ func _check_me() -> bool:
 		res = Global.score.check_object(self)
 		
 	if res: # was winning object
-		self.collision_layer = 16
+		self.collision_layer = 0
 		self.collision_mask = 0
 		is_out = true
 		
@@ -86,9 +86,11 @@ func _physics_process(delta: float) -> void:
 			
 			count_drop()
 			
+			self.z_index = 1
+			
 			# out !
 			Global.player._on_area_2d_body_exited(self)
-			self.collision_layer = 16
+			self.collision_layer = 0
 			self.collision_mask = 0
 			is_out = true
 			
