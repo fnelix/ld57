@@ -31,6 +31,7 @@ func setup_nodes():
 
 func reset_stage():
 	player.reset()
+	score.reset()
 
 	# clean world
 	for child in world.get_children():

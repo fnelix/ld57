@@ -25,15 +25,15 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		mouse_position = event.position
-
-		
+	if Input.is_action_just_pressed("click"):
+		if true or mouse_on_player:
+			mouse_drag = true
+			mouse_drag_start = event.position
+			position_drag_start = self.global_position
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_MASK_LEFT:
 			if event.pressed: # mouse down
-				if true or mouse_on_player:
-					mouse_drag = true
-					mouse_drag_start = event.position
-					position_drag_start = self.global_position
+				pass
 			else:
 				mouse_drag = false
 	
@@ -47,10 +47,13 @@ func reset():
 				
 		hold_bodies.clear()
 		
+		hand.get_node("Sprite2D").texture = preload("res://assets/sprites/hand/hand_open.png")
+		
 		mouse_drag = false
 		hand_hold = false
 		
 		self.global_position = Vector2(-14,-461)
+		hand.global_position = Vector2(-14,-461)
 	
 	
 func _add_joint(body, pos):
