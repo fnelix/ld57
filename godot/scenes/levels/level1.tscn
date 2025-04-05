@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdbpwpueqerls"]
+[gd_scene load_steps=17 format=3 uid="uid://cdbpwpueqerls"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_jprdt"]
 [ext_resource type="Texture2D" uid="uid://cy22asdl3c1kt" path="res://assets/sprites/layouts/bagexample03.png" id="1_x6ivy"]
 [ext_resource type="PackedScene" uid="uid://c21830akv3dbj" path="res://scenes/items/lipstick.tscn" id="2_bfxgj"]
+[ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_ps2vj"]
 [ext_resource type="PackedScene" uid="uid://bbve2ifi5kv63" path="res://scenes/items/pacifier.tscn" id="3_dywbp"]
 [ext_resource type="PackedScene" uid="uid://ousuj6lmux6h" path="res://scenes/items/cigarette.tscn" id="4_bfxgj"]
 [ext_resource type="PackedScene" uid="uid://jo70xi518d3i" path="res://scenes/items/cigarette_broken.tscn" id="5_1seuy"]
@@ -15,8 +16,18 @@
 [ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="12_lgguw"]
 [ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="13_lgguw"]
 
+[sub_resource type="Resource" id="Resource_ps2vj"]
+resource_local_to_scene = true
+script = ExtResource("2_ps2vj")
+prompt = "Quick, I need a smoke!
+Get me a cigarette and match."
+win_objects = Array[String](["Match", "Cigarette"])
+metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
+
 [node name="Level" type="Node2D"]
+position = Vector2(6, 25)
 script = ExtResource("1_jprdt")
+levelinfo = SubResource("Resource_ps2vj")
 
 [node name="Limit_out" type="Line2D" parent="."]
 position = Vector2(1, -239)
@@ -71,6 +82,10 @@ position = Vector2(-44, 25)
 [node name="Match" parent="." instance=ExtResource("9_plydf")]
 position = Vector2(-22, 198)
 rotation = 1.66655
+
+[node name="Match2" parent="." instance=ExtResource("9_plydf")]
+position = Vector2(78, 2.00002)
+rotation = 1.70333
 
 [node name="Keys" parent="." instance=ExtResource("10_5ntmo")]
 position = Vector2(-13, -82)

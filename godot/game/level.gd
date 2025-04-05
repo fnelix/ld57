@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var text = "bla"
+@export var levelinfo : ResourceLevelInfo
 
 
 func _ready() -> void:

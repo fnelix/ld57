@@ -5,7 +5,7 @@ var world : Node
 var player : Node2D
 var camera : Node2D
 var score: Node2D
-
+var ui: Node
 
 ##
 var is_touch = false
@@ -16,7 +16,7 @@ func setup_nodes():
 	if !world:
 		print("setup_nodes(): world node not found")
 		
-	player = get_node("/root/root/Player")
+	player = get_node("/root/root/HandAssembly/Player")
 	if !player:
 		print("setup_nodes(): player node not found")
 		
@@ -27,6 +27,10 @@ func setup_nodes():
 	score = get_node("/root/root/Score")
 	if !score:
 		print("setup_nodes(): score node not found")
+		
+	ui = get_node("/root/root/UI")
+	if !ui:
+		print("setup_nodes(): ui node not found")
 
 
 func reset_stage():
@@ -40,6 +44,7 @@ func reset_stage():
 	var level = preload("res://scenes/levels/level1.tscn").instantiate()
 	world.add_child(level)
 	level.init()
+	score.init_level()
 	
 	
 func reset():

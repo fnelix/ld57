@@ -8,5 +8,8 @@ func time2hhmmss(s: float) -> String:
 	var str:String = "%02d:%02d:%02.0f" % [hours, minutes, seconds]
 	return str
 
+func set_prompt_text(text):
+	$MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text = text
+
 func _process(delta: float) -> void:
 	$MarginContainer/VBoxContainer/Label.text = "%s " % [ time2hhmmss(Global.score.level_time)]

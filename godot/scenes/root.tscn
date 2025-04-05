@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=13 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
-[ext_resource type="PackedScene" uid="uid://cdbpwpueqerls" path="res://scenes/levels/level1.tscn" id="2_3hfy5"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
 [ext_resource type="Script" uid="uid://dnfwi8l0y3whx" path="res://game/player.gd" id="2_lrqlo"]
 [ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="5_kycxp"]
@@ -34,9 +33,9 @@ scale = Vector2(1, 0.965926)
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
 
-[node name="Level" parent="World" instance=ExtResource("2_3hfy5")]
+[node name="HandAssembly" type="Node2D" parent="."]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="HandAssembly"]
 process_mode = 1
 position = Vector2(-14, -461)
 collision_layer = 512
@@ -44,11 +43,11 @@ collision_mask = 512
 input_pickable = true
 script = ExtResource("2_lrqlo")
 
-[node name="CollisionShape2D_Drag" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D_Drag" type="CollisionShape2D" parent="HandAssembly/Player"]
 position = Vector2(14, 194)
 shape = SubResource("CircleShape2D_kycxp")
 
-[node name="Hand" type="RigidBody2D" parent="."]
+[node name="Hand" type="RigidBody2D" parent="HandAssembly"]
 process_mode = 1
 position = Vector2(-13, -456.83)
 collision_layer = 4
@@ -59,29 +58,29 @@ linear_damp = 10.0
 angular_damp = 1.0
 script = ExtResource("5_kycxp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+[node name="Sprite2D" type="Sprite2D" parent="HandAssembly/Hand"]
 z_index = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_kycxp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HandAssembly/Hand"]
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 166, 94, 272, 138, 412, 80, 436, 50, 356, -44, 372, -78, 428, -88, 298, -64, 170)
 
-[node name="Area2D_Grab" type="Area2D" parent="Hand"]
+[node name="Area2D_Grab" type="Area2D" parent="HandAssembly/Hand"]
 position = Vector2(0, 246)
 collision_layer = 3
 collision_mask = 3
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Grab"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Grab"]
 position = Vector2(6, -24.17)
 shape = SubResource("CircleShape2D_j287u")
 debug_color = Color(0.970241, 0, 0.456039, 0.42)
 
-[node name="Area2D_Feel" type="Area2D" parent="Hand"]
+[node name="Area2D_Feel" type="Area2D" parent="HandAssembly/Hand"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Feel"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Feel"]
 position = Vector2(17, 211.83)
 shape = SubResource("CircleShape2D_jh1ax")
 debug_color = Color(0.791469, 0.427967, 3.85046e-07, 0.42)
@@ -159,11 +158,9 @@ layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
-[connection signal="mouse_entered" from="Player" to="Player" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Player" to="Player" method="_on_mouse_exited"]
-[connection signal="body_entered" from="Hand/Area2D_Grab" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Hand/Area2D_Grab" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Hand/Area2D_Feel" to="Player" method="_on_area_2d_feel_body_entered"]
-[connection signal="body_exited" from="Hand/Area2D_Feel" to="Player" method="_on_area_2d_feel_body_exited"]
-
-[editable path="World/Level"]
+[connection signal="mouse_entered" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_exited"]
+[connection signal="body_entered" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_entered"]
+[connection signal="body_exited" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_exited"]

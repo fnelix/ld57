@@ -18,7 +18,7 @@ var hold_bodies = []
 var hold_joints = []
 
 func _ready() -> void:
-	hand = get_node("/root/root/Hand")
+	hand = get_node("/root/root/HandAssembly/Hand")
 
 	
 func _input(event: InputEvent) -> void:
