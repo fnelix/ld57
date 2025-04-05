@@ -11,7 +11,7 @@ func _ready() -> void:
 	self.collision_layer = pow(2,1)
 	
 	target_color = Color.BLACK
-	$Sprite2D.modulate = target_color
+	self.modulate = target_color
 
 
 
@@ -81,4 +81,4 @@ func _physics_process(delta: float) -> void:
 	#	self.global_position = Global.player.hand.get_node("Area2D_Grab").global_position
 
 func _process(delta: float) -> void:
-	$Sprite2D.modulate = lerp($Sprite2D.modulate, target_color, 20.0 * delta)
+	self.modulate = lerp(self.modulate, target_color, 20.0 * delta)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://byrqvm0e2e2e1"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_m21jx"]
+[ext_resource type="Texture2D" uid="uid://0jkx4vuwkix2" path="res://assets/sprites/items/key03.png" id="2_m21jx"]
+
+[node name="key03" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_m21jx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m21jx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-22, -76, -36, -52, -36, -28, -24, -18, -14, -4, -16, 64, 0.0999985, 79.2, 16, 64, 16, -8, 30, -22, 36, -38, 32, -61.5, 6, -78)

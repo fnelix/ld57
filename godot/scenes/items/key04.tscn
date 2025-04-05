@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5oad34pfj2rf"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_twcl8"]
+[ext_resource type="Texture2D" uid="uid://dq2ee5pkbt11v" path="res://assets/sprites/items/key04.png" id="2_twcl8"]
+
+[node name="key04" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_twcl8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_twcl8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-32, -78, -32, -24, -22, -18, -14, -10, -12, 64, 0.0999985, 79.2, 16, 64, 16, -8, 22, -18, 30, -20, 30, -78)
