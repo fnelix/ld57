@@ -4,6 +4,7 @@ var limit_out = -270
 var limit_win = -270
 
 var level_time = 0
+var level_drops = 0
 
 var level_info : ResourceLevelInfo = null
 
@@ -11,6 +12,7 @@ var level_items_done = []
 
 func reset():
 	level_time = 0
+	level_drops = 0
 	
 		# init items done
 	level_items_done = []
@@ -80,7 +82,8 @@ func check_object(obj : Node):
 		return false
 	
 	
-	
+func count_drop():
+	level_drops += 1
 
 
 func _physics_process(delta: float) -> void:

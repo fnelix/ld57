@@ -29,7 +29,8 @@ var current_level = 0
 
 var levels = [ 
 	preload("res://scenes/levels/level1.tscn"),
-	preload("res://scenes/levels/level2.tscn")
+	preload("res://scenes/levels/level_backpack_pens.tscn"),
+	preload("res://scenes/levels/level_jellybeans.tscn")
 	]
 
 func setup_nodes():

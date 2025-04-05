@@ -34,8 +34,10 @@ func touch_end():
 	if not is_out:
 		target_color = Color.BLACK
 		
-		
-func _check_me():
+func _die():
+	self.queue_free()
+	
+func _check_me() -> bool:
 	var res = false
 	
 	# check win also!
@@ -57,10 +59,20 @@ func _check_me():
 		tween.set_parallel(true)
 		tween.tween_property(self,"rotation", deg_to_rad(360), 0.8).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(self,"modulate", Color.TRANSPARENT, 0.5).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		tween.set_parallel(false)
+		tween.tween_callback(_die)
+		
+		return true
+	else:
+		return false
 		
 		
-		
-	
+var is_count_drop=false
+
+func count_drop():
+	if not is_count_drop:
+		is_count_drop = true
+		Global.score.count_drop()
 
 func _physics_process(delta: float) -> void:
 	
@@ -68,14 +80,24 @@ func _physics_process(delta: float) -> void:
 		_check_me()
 		
 	if self.global_position.y < Global.score.limit_out:
-		_check_me() # check object also if limit out
+		var res =  _check_me() # check object also if limit out
 		
-		Global.player._on_area_2d_body_exited(self)
-		self.collision_layer = 16
-		self.collision_mask = 0
-		is_out = true
+		if not res:
+			
+			count_drop()
+			
+			# out !
+			Global.player._on_area_2d_body_exited(self)
+			self.collision_layer = 16
+			self.collision_mask = 0
+			is_out = true
+			
+			target_color = Color.WHITE
+
+	if self.global_position.y > 400: # y limit!!
+		count_drop()
 		
-		target_color = Color.WHITE
+		self.queue_free()
 
 	#if is_carry:
 	#	self.global_position = Global.player.hand.get_node("Area2D_Grab").global_position

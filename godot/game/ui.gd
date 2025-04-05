@@ -22,10 +22,10 @@ func mod_prompt_text(name):
 func _process(delta: float) -> void:
 	$MarginContainer/VBoxContainer/Label.text = "%s " % [ time2hhmmss(Global.score.level_time)]
 
-
+	
 func show_level_win(value: bool):
 	$MarginContainer/LevelWinPanel.visible = value
-	$MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/LabelText.text = "Good"
+	$MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/LabelText.text = "Good!"+"\n%s\n%s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
 
 
 func _on_button_continue_pressed() -> void:

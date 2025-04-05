@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://uyb6c1fgja38"]
+
+[ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_qmbkv"]
+[ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_chrt7"]
+[ext_resource type="Texture2D" uid="uid://cky47426q3xjf" path="res://assets/sprites/backgrounds/bg_backpack.png" id="3_p127i"]
+[ext_resource type="PackedScene" uid="uid://btiens71lly7y" path="res://scenes/items/ballpen_full.tscn" id="4_v3roc"]
+[ext_resource type="PackedScene" uid="uid://c5oad34pfj2rf" path="res://scenes/items/key04.tscn" id="5_yh8rx"]
+[ext_resource type="PackedScene" uid="uid://c538ke312j40k" path="res://scenes/items/key02.tscn" id="6_0bng6"]
+[ext_resource type="PackedScene" uid="uid://ou6kmawtmyrp" path="res://scenes/items/earpod_L.tscn" id="9_1vkra"]
+[ext_resource type="PackedScene" uid="uid://t3dhgf7l18fd" path="res://scenes/items/ballpen_empty.tscn" id="10_4evbh"]
+[ext_resource type="PackedScene" uid="uid://b6b62m34ca1n2" path="res://scenes/items/earpod_R.tscn" id="10_qhce4"]
+[ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="15_jwddo"]
+
+[sub_resource type="Resource" id="Resource_ps2vj"]
+script = ExtResource("2_chrt7")
+prompt = "Quick, I need a smoke!
+Get me a cigarette and match."
+win_objects = Array[String](["match", "cigarette"])
+metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_qmbkv")
+levelinfo = SubResource("Resource_ps2vj")
+
+[node name="Limit_out" type="Line2D" parent="."]
+position = Vector2(13, -179)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Limit_win" type="Line2D" parent="."]
+position = Vector2(4, -153)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(0, 0.780392, 0, 1)
+
+[node name="Bag" type="StaticBody2D" parent="."]
+collision_mask = 7
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
+polygon = PackedVector2Array(-114, -140, -112, -51, -105, 155, -111, 164, -110, 195, -103, 214, -82, 217, -16, 230, 21, 229, 53, 224, 87, 225, 108, 221, 112, 197, 109, 155, 103, 137, 111, 128, 119, 23, 122, -123, 136, -144, 144, -95, 141, 22, 138, 142, 139, 200, 126, 239, 103, 235, -7, 244, -102, 230, -132, 209, -129, 149, -120, -48, -122, -144)
+
+[node name="Bagexample03" type="Sprite2D" parent="Bag"]
+z_index = -8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_p127i")
+metadata/_edit_lock_ = true
+
+[node name="ballpen_full" parent="." instance=ExtResource("4_v3roc")]
+position = Vector2(6.00001, 181)
+rotation = 1.32831
+
+[node name="key04" parent="." instance=ExtResource("5_yh8rx")]
+position = Vector2(-74, 150)
+rotation = 0.274494
+
+[node name="key02" parent="." instance=ExtResource("6_0bng6")]
+position = Vector2(58, 117)
+rotation = 0.38814
+
+[node name="key01" parent="." instance=ExtResource("15_jwddo")]
+position = Vector2(-1.90735e-06, 137)
+rotation = -1.30943
+
+[node name="earpod_L" parent="." instance=ExtResource("9_1vkra")]
+position = Vector2(-67, 80)
+
+[node name="earpod_L2" parent="." instance=ExtResource("10_qhce4")]
+position = Vector2(86, 52)
+
+[node name="ballpen_empty" parent="." instance=ExtResource("10_4evbh")]
+position = Vector2(28, 31)
