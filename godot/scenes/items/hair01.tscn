@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0jaa5vcg1oeg"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_cfruu"]
+[ext_resource type="Texture2D" uid="uid://d0504e8hvm1ku" path="res://assets/sprites/items/hair01.png" id="2_cfruu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfruu"]
+radius = 8.0
+height = 136.0
+
+[node name="Hair01" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_cfruu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cfruu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_cfruu")

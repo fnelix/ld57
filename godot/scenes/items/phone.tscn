@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cguxrgg0skhjo"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_7cisq"]
+[ext_resource type="Texture2D" uid="uid://hscw82mchp8s" path="res://assets/sprites/items/phone.png" id="2_7cisq"]
+
+[node name="Phone" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_7cisq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7cisq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-30, -184.1, -60.2, -179, -75.1, -176, -86.7, -161, -88.7, -149, -89.9, -149, -93.9, -60, -94, -6, -94, 20.1, -86, 107.2, -81, 133, -76, 148, -51, 173.8, -32, 183, 16.1, 183, 54.3, 178, 69.4, 174, 78, 168, 84.9, 154, 92.9, 46, 94, 46, 94, -36.1, 91, -63, 91, -74.2, 82, -129.3, 73, -160.9, 61, -172, 43, -180.9)

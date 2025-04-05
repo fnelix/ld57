@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ousuj6lmux6h"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_vll0x"]
+[ext_resource type="Texture2D" uid="uid://dtsfaloeoy1l3" path="res://assets/sprites/items/cigarette.png" id="2_vll0x"]
+
+[node name="Cigarette" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_vll0x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vll0x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-9, -97.1, -16, -88, -13, 43, -12, 92, -7, 98, 7.9, 98, 15, 92, 14, 27, 14, -88.8, 9, -95.9)

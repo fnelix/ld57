@@ -4,6 +4,8 @@ extends Node
 var world : Node
 var player : Node2D
 var camera : Node2D
+var score: Node2D
+
 
 ##
 var is_touch = false
@@ -21,10 +23,27 @@ func setup_nodes():
 	camera = get_node("/root/root/Camera")
 	if !camera:
 		print("setup_nodes(): camera node not found")
-		
+	
+	score = get_node("/root/root/Score")
+	if !score:
+		print("setup_nodes(): score node not found")
 
-func _process(_delta):
-	pass
+
+func reset_stage():
+	player.reset()
+
+	# clean world
+	for child in world.get_children():
+		child.queue_free()
+	
+	var level = preload("res://scenes/levels/level1.tscn").instantiate()
+	world.add_child(level)
+	level.init()
+	
+	
+func reset():
+	reset_stage()
+	
 
 #var text_scene = preload("res://scenes/Label3D.tscn")
 #

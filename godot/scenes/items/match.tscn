@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxcqhkqhwyogs"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_cs2et"]
+[ext_resource type="Texture2D" uid="uid://cwx5w2q8nnryl" path="res://assets/sprites/items/match.png" id="2_cs2et"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3kfrg"]
+radius = 8.0
+height = 168.0
+
+[node name="Match" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_cs2et")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cs2et")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_3kfrg")
