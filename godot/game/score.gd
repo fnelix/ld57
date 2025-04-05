@@ -12,15 +12,21 @@ var level_items_done = []
 func reset():
 	level_time = 0
 	
+		# init items done
+	level_items_done = []
+	for str in level_info.win_objects:
+		level_items_done.append(false)
+	
 
 func init_level():
-	var level = Global.world.get_node("Level")
+	var level = Global.level
 	level_info = level.levelinfo
 	
 	# set prompt
 	Global.ui.set_prompt_text(level_info.prompt)
 	
-	# init 
+	# init items done
+	level_items_done = []
 	for str in level_info.win_objects:
 		level_items_done.append(false)
 	
@@ -52,6 +58,7 @@ func check_object(obj : Node):
 	# all done?
 	if level_items_done.count(false) == 0:
 		print("you win!")
+		Global.win_level()
 	
 	print(level_items_done)
 	

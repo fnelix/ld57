@@ -6,9 +6,31 @@ var player : Node2D
 var camera : Node2D
 var score: Node2D
 var ui: Node
+var level: Node = null
 
 ##
 var is_touch = false
+
+enum ContinueStates {
+	INVALID,
+	INIT,
+	RES1,
+	RES2,
+	LEVEL_CONTINUE,
+	GAME_CONTINUE,
+	RES3
+}
+
+var state_continue : ContinueStates = ContinueStates.INIT
+
+var flag_continue = false
+
+var current_level = 0
+
+var levels = [ 
+	preload("res://scenes/levels/level1.tscn"),
+	preload("res://scenes/levels/level2.tscn")
+	]
 
 func setup_nodes():
 	
@@ -34,35 +56,56 @@ func setup_nodes():
 
 
 func reset_stage():
-	player.reset()
-	score.reset()
-
 	# clean world
 	for child in world.get_children():
 		child.queue_free()
+	level = null
 	
-	var level = preload("res://scenes/levels/level1.tscn").instantiate()
-	world.add_child(level)
-	level.init()
+	print("loading level ", current_level)
+	var newlevel = levels[current_level].instantiate()
+	
+	print(newlevel.levelinfo.prompt)
+	
+	world.add_child(newlevel)
+	newlevel.init()
+	
+	#
+	level = newlevel
+
 	score.init_level()
+	
+	player.reset()
+	score.reset()
+	
+	# ui
+	ui.show_level_win(false)
+	
+	
+	
 	
 	
 func reset():
+	current_level = 0
+	reset_stage()
+
+func next_level():
+	current_level += 1
+	
+	if current_level >= levels.size():
+		# game done!
+		current_level = levels.size()-1
+
+func skip_level():
+	next_level()
 	reset_stage()
 	
+	
 
-#var text_scene = preload("res://scenes/Label3D.tscn")
-#
-#func add_text_at(text, pos: Vector3, color : Color = Color.white):
-#	var txt = text_scene.instance()
-#	get_parent().add_child(txt)
-#
-#	pos = adjust_pos_to_screen(pos)	
-#
-#	txt.global_transform.origin = pos
-#	txt.set_text(text)
-#	txt.set_color(color)
-#	txt.go()
+func win_level():
+	flag_continue = false
+	state_continue = ContinueStates.LEVEL_CONTINUE
+	ui.show_level_win(true)
+	
 	
 
 # check for valid instance which is not queued for deletion
@@ -80,22 +123,6 @@ func check_inst(inst:Node, check_type_meta:bool = false)->bool:
 		return false
 	
 	return true
-#
-#func sanitize_instances_array(array:Array):
-#	if array.empty():
-#		return
-#
-#	var invalid_objects := []
-#
-#	for element in array:
-#		if not check_inst(element, false):
-#			invalid_objects.append(element)
-#
-#	if not invalid_objects.empty():
-#		print("sanitize_instances_array: found sth.",get_stack())
-#
-#	for element in invalid_objects:
-#		array.erase(element)
 
 
 # float from -1.0 -> 1.0
@@ -103,6 +130,18 @@ func rand_norm() -> float:
 	return (randf()-0.5)*2.0
 
 
+func _physics_process(delta: float) -> void:
+	
+	if flag_continue:
+		flag_continue = false
+		
+		if state_continue == ContinueStates.LEVEL_CONTINUE:
+			ui.show_level_win(false)
+			next_level()
+			reset_stage()	
+			state_continue = ContinueStates.INVALID
+			
+		
 
 	
 	

@@ -13,3 +13,11 @@ func set_prompt_text(text):
 
 func _process(delta: float) -> void:
 	$MarginContainer/VBoxContainer/Label.text = "%s " % [ time2hhmmss(Global.score.level_time)]
+
+
+func show_level_win(value: bool):
+	$MarginContainer/LevelWinPanel.visible = value
+
+
+func _on_button_continue_pressed() -> void:
+	Global.flag_continue = true

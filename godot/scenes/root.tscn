@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=14 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ben3gdxwalkeb" path="res://assets/fonts/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="7_j287u"]
 [ext_resource type="Texture2D" uid="uid://cuv73ahlrgyrm" path="res://assets/sprites/layouts/speechbubble.png" id="8_3hfy5"]
 [ext_resource type="StyleBox" path="res://assets/styleboxflat_empty.tres" id="9_7pvxh"]
+[ext_resource type="StyleBox" uid="uid://cfbki43yl7c56" path="res://assets/stylebox1.tres" id="10_7pvxh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kycxp"]
 radius = 90.0
@@ -158,9 +159,40 @@ layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
+[node name="LevelWinPanel" type="CenterContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/LevelWinPanel"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("10_7pvxh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/LevelWinPanel/PanelContainer"]
+layout_mode = 2
+
+[node name="LabelText" type="Label" parent="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer"]
+z_index = 8
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_j287u")
+theme_override_font_sizes/font_size = 32
+text = "Good job!"
+
+[node name="ButtonContinue" type="Button" parent="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.288518, 0.288518, 0.288518, 1)
+theme_override_fonts/font = ExtResource("7_j287u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("10_7pvxh")
+text = "Continue
+"
+flat = true
+
 [connection signal="mouse_entered" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_exited"]
 [connection signal="body_entered" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_entered"]
 [connection signal="body_exited" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_exited"]
+[connection signal="pressed" from="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/ButtonContinue" to="UI" method="_on_button_continue_pressed"]

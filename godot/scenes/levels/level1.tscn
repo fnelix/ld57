@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="13_lgguw"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
-resource_local_to_scene = true
 script = ExtResource("2_ps2vj")
 prompt = "Quick, I need a smoke!
 Get me a cigarette and match."
@@ -25,7 +24,6 @@ win_objects = Array[String](["Match", "Cigarette"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]
-position = Vector2(6, 25)
 script = ExtResource("1_jprdt")
 levelinfo = SubResource("Resource_ps2vj")
 
