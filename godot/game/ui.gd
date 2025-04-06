@@ -25,8 +25,28 @@ func _process(delta: float) -> void:
 	
 func show_level_win(value: bool):
 	%LevelWinPanel.visible = value
-	%LevelWinPanel/PanelContainer/VBoxContainer/LabelText.text = "Good!"+"\n%s\n%s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
+	%LabelLevelText.text = "Time: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
+	
+	if value == true:
+		%GameUI.visible = false
+	else:
+		%GameUI.visible = true
+	
 
+	
+func show_game_win(value: bool):
+
+	%GameWinPanel.visible = value
+	%LabelGameText.text = "Time: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.game_time), Global.score.game_drops]
+
+func show_game_start(value: bool):
+	%GameStartPanel.visible = value
+	
+func show_instructions(value: bool):
+	%InstructionsPanel.visible = value
+	
+func show_game_ui(value:bool):
+	%GameUI.visible = value
 
 func _on_button_continue_pressed() -> void:
 	Global.flag_continue = true
@@ -40,3 +60,15 @@ func _on_button_reset_pressed() -> void:
 func _on_button_hand_free_pressed() -> void:
 	Input.action_press("f")
 	Input.action_release("f")
+
+
+func _on_button_start_game_pressed() -> void:
+	Global.flag_continue = true
+
+
+func _on_button_howto_contiue_pressed() -> void:
+	Global.flag_continue = true
+
+
+func _on_button_new_game_pressed() -> void:
+	Global.flag_continue = true

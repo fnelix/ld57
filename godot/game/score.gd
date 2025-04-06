@@ -3,6 +3,9 @@ extends Node2D
 var limit_out = -270
 var limit_win = -270
 
+var game_time = 0
+var game_drops = 0
+
 var level_time = 0
 var level_drops = 0
 
@@ -10,14 +13,22 @@ var level_info : ResourceLevelInfo = null
 
 var level_items_done = []
 
-func reset():
+func reset_stage():
 	level_time = 0
 	level_drops = 0
 	
-		# init items done
-	level_items_done = []
-	for str in level_info.win_objects:
-		level_items_done.append(false)
+	# init items done
+	if level_info != null: # crash if level not loaded
+		level_items_done = []
+		for str in level_info.win_objects:
+			level_items_done.append(false)
+	else:
+		print("level info is null")
+func reset():
+	game_time = 0
+	game_drops = 0
+	
+	reset_stage()
 	
 
 func init_level():
@@ -89,6 +100,9 @@ func count_drop():
 	
 	Global.sfx.get_node("ugh").play()
 
+func score_level_done():
+	game_time += level_time
+	game_drops += level_drops
 
 func _physics_process(delta: float) -> void:
 	level_time += delta

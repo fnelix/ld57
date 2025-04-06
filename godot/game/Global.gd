@@ -15,8 +15,8 @@ var is_touch = false
 enum ContinueStates {
 	INVALID,
 	INIT,
-	RES1,
-	RES2,
+	START_CONTINUE,
+	INSTRUCTIONS_CONTINUE,
 	LEVEL_CONTINUE,
 	GAME_CONTINUE,
 	RES3
@@ -36,6 +36,8 @@ var levels = [
 	
 	preload("res://scenes/levels/level_jellybeans.tscn")
 	]
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func setup_nodes():
 	
@@ -84,7 +86,7 @@ func reset_stage():
 	score.init_level()
 	
 	player.reset()
-	score.reset()
+	score.reset_stage()
 	
 	# ui
 	ui.show_level_win(false)
@@ -94,8 +96,85 @@ func reset_stage():
 	
 	
 func reset():
+	get_node("/root/root/World").modulate = Color.WHITE
+	
 	current_level = 0
+	
+	score.reset()
+	
 	reset_stage()
+	
+	state_game_start()
+
+func state_game_start():
+	# show level start screen
+	flag_continue = false
+	state_continue = ContinueStates.START_CONTINUE
+	get_tree().paused = true
+	
+	world.visible = false
+	ui.show_game_start(true)
+	ui.show_instructions(false)
+	ui.show_game_ui(false)
+	
+	# once
+	ui.show_level_win(false)
+	ui.show_game_win(false)
+	
+func state_game_howto():
+	# hide  level start screen
+	flag_continue = false
+	state_continue = ContinueStates.INSTRUCTIONS_CONTINUE
+	
+	ui.show_game_start(false)
+	ui.show_instructions(true)
+	ui.show_game_ui(false)
+
+func state_game_go():
+
+
+	world.visible = true
+	ui.show_game_start(false)
+	ui.show_instructions(false)
+	ui.show_game_ui(true)
+	
+	get_tree().paused = false
+
+func win_level():
+	flag_continue = false
+	state_continue = ContinueStates.LEVEL_CONTINUE
+	
+	score.score_level_done() # save level score to game score
+	
+	ui.show_level_win(true)
+	
+	get_node("/root/root/World").modulate = Color.DIM_GRAY
+	
+	get_tree().paused = true
+
+
+func state_game_next_level():
+	ui.show_level_win(false)
+	
+	get_node("/root/root/World").modulate = Color.WHITE
+
+	get_tree().paused = false
+	
+
+	next_level()
+	reset_stage()
+	
+func state_game_win_game():
+	ui.show_level_win(false)
+	ui.show_game_win(true)
+	
+	world.visible = false
+	ui.show_game_ui(false)
+	
+	flag_continue = false
+	state_continue = ContinueStates.GAME_CONTINUE
+	
+	
 
 func next_level():
 	current_level += 1
@@ -106,15 +185,7 @@ func next_level():
 
 func skip_level():
 	next_level()
-	reset_stage()
-	
-	
-
-func win_level():
-	flag_continue = false
-	state_continue = ContinueStates.LEVEL_CONTINUE
-	ui.show_level_win(true)
-	
+	reset_stage()	
 	
 
 # check for valid instance which is not queued for deletion
@@ -144,12 +215,30 @@ func _physics_process(delta: float) -> void:
 	if flag_continue:
 		flag_continue = false
 		
-		if state_continue == ContinueStates.LEVEL_CONTINUE:
-			ui.show_level_win(false)
-			next_level()
-			reset_stage()	
+		if state_continue == ContinueStates.START_CONTINUE:
+			state_game_howto()
+			state_continue = ContinueStates.INSTRUCTIONS_CONTINUE
+		elif state_continue == ContinueStates.INSTRUCTIONS_CONTINUE:
+	
+			state_game_go()
 			state_continue = ContinueStates.INVALID
 			
+		elif state_continue == ContinueStates.LEVEL_CONTINUE:
+			
+			if current_level == levels.size()-1: # win game
+				state_game_win_game()
+			else:
+				state_game_next_level()
+				state_continue = ContinueStates.INVALID
+		
+			
+			
+		elif state_continue == ContinueStates.GAME_CONTINUE:
+			
+			Input.action_press("x")
+			Input.action_release("x")
+		
+			state_continue = ContinueStates.INVALID
 		
 
 	

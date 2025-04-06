@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=32 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
@@ -11,10 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://cuv73ahlrgyrm" path="res://assets/sprites/layouts/speechbubble.png" id="8_3hfy5"]
 [ext_resource type="Texture2D" uid="uid://c5be27xlio7of" path="res://assets/sprites/layouts/button_reset.png" id="8_l5cgh"]
 [ext_resource type="StyleBox" path="res://assets/styleboxflat_empty.tres" id="9_7pvxh"]
-[ext_resource type="StyleBox" uid="uid://cfbki43yl7c56" path="res://assets/stylebox1.tres" id="10_7pvxh"]
+[ext_resource type="Texture2D" uid="uid://bxcbq8uwwumig" path="res://assets/sprites/layouts/textbox_big.png" id="12_e2w8j"]
+[ext_resource type="Texture2D" uid="uid://e6nq4li1j571" path="res://assets/sprites/layouts/button_nextlevel.png" id="13_ccljq"]
 [ext_resource type="AudioStream" uid="uid://wcbpfw5c5uy8" path="res://assets/sounds/hbh_music.mp3" id="13_l5cgh"]
+[ext_resource type="Texture2D" uid="uid://lt8wxujy3tec" path="res://assets/sprites/layouts/startscreen.png" id="13_mflgo"]
+[ext_resource type="Texture2D" uid="uid://cryq3cs57bhg8" path="res://assets/sprites/layouts/goodjob.png" id="13_re66h"]
+[ext_resource type="Texture2D" uid="uid://yiuvuj5uwe0b" path="res://assets/sprites/layouts/button_startgame.png" id="14_8ui5n"]
+[ext_resource type="Texture2D" uid="uid://dkd8ksumkcahe" path="res://assets/sprites/layouts/howto01.png" id="14_34frw"]
 [ext_resource type="AudioStream" uid="uid://3iotcl52uxln" path="res://assets/sounds/ugh1.wav" id="14_log26"]
+[ext_resource type="Texture2D" uid="uid://ynmwwcwm66ii" path="res://assets/sprites/layouts/gameend.png" id="15_f3p2p"]
 [ext_resource type="AudioStream" uid="uid://cvtlsa2fwmqx7" path="res://assets/sounds/ugh2.wav" id="15_gt4lb"]
+[ext_resource type="Texture2D" uid="uid://stgb0k6eic7w" path="res://assets/sprites/layouts/button_playagain.png" id="16_ccljq"]
 [ext_resource type="AudioStream" uid="uid://chcalwuutgblr" path="res://assets/sounds/ugh3.wav" id="16_ya6yc"]
 [ext_resource type="AudioStream" uid="uid://c4dqqo6g8d8gi" path="res://assets/sounds/ugh4.wav" id="17_mflgo"]
 [ext_resource type="AudioStream" uid="uid://dk4jhnoysmspi" path="res://assets/sounds/glock1.wav" id="18_ya6yc"]
@@ -110,6 +117,7 @@ shape = SubResource("CircleShape2D_jh1ax")
 debug_color = Color(0.791469, 0.427967, 3.85046e-07, 0.42)
 
 [node name="UI" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("7_5sfjl")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
@@ -130,48 +138,51 @@ size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer"]
+[node name="GameUI" type="MarginContainer" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/GameUI"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="ButtonHandFree" type="TextureButton" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="ButtonHandFree" type="TextureButton" parent="UI/MarginContainer/GameUI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_xsp7o")
 
-[node name="ButtonReset" type="TextureButton" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="ButtonReset" type="TextureButton" parent="UI/MarginContainer/GameUI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_l5cgh")
 
-[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 20
 
-[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/GameUI/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("8_3hfy5")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/GameUI/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LabelText_alt" type="Label" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="LabelText_alt" type="Label" parent="UI/MarginContainer/GameUI/VBoxContainer/MarginContainer/MarginContainer"]
 visible = false
 z_index = 8
 layout_mode = 2
@@ -181,7 +192,7 @@ theme_override_font_sizes/font_size = 32
 text = "The baby is crying.
 Quick, where is the pacifier!"
 
-[node name="LabelPrompt" type="RichTextLabel" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="LabelPrompt" type="RichTextLabel" parent="UI/MarginContainer/GameUI/VBoxContainer/MarginContainer/MarginContainer"]
 unique_name_in_owner = true
 z_index = 8
 layout_mode = 2
@@ -194,12 +205,12 @@ Quick, where is the pacifier!"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="HSeparator2" type="HSeparator" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
-[node name="LabelTime" type="Label" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="LabelTime" type="Label" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 unique_name_in_owner = true
 z_index = 8
 layout_mode = 2
@@ -209,23 +220,45 @@ theme_override_font_sizes/font_size = 32
 text = "Timer!"
 horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
-[node name="LevelWinPanel" type="CenterContainer" parent="UI/MarginContainer"]
+[node name="LevelWinPanel" type="MarginContainer" parent="UI/MarginContainer"]
 unique_name_in_owner = true
+visible = false
+z_index = 6
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/LevelWinPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/LevelWinPanel"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("10_7pvxh")
+theme_override_constants/margin_top = 430
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/LevelWinPanel/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/LevelWinPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="LabelText" type="Label" parent="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_e2w8j")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = 0.0020414
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_re66h")
+
+[node name="LabelLevelText" type="Label" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 z_index = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -233,17 +266,97 @@ theme_override_fonts/font = ExtResource("7_j287u")
 theme_override_font_sizes/font_size = 32
 text = "Good job!"
 
-[node name="ButtonContinue" type="Button" parent="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/separation = 130
+theme_override_styles/separator = ExtResource("9_7pvxh")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+
+[node name="ButtonContinue" type="TextureButton" parent="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_ccljq")
+
+[node name="GameStartPanel" type="CenterContainer" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/GameStartPanel"]
+layout_mode = 2
+texture = ExtResource("13_mflgo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/GameStartPanel"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/GameStartPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 710
+theme_override_styles/separator = ExtResource("9_7pvxh")
+
+[node name="ButtonStartGame" type="TextureButton" parent="UI/MarginContainer/GameStartPanel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_8ui5n")
+
+[node name="GameWinPanel" type="CenterContainer" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/GameWinPanel"]
+layout_mode = 2
+texture = ExtResource("15_f3p2p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/GameWinPanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/GameWinPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 25
+
+[node name="LabelGameText" type="Label" parent="UI/MarginContainer/GameWinPanel/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+z_index = 8
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.288518, 0.288518, 0.288518, 1)
 theme_override_fonts/font = ExtResource("7_j287u")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("10_7pvxh")
-text = "Continue
-"
-flat = true
+theme_override_font_sizes/font_size = 32
+text = "Good job!"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer/GameWinPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 240
+theme_override_constants/margin_bottom = 30
+
+[node name="ButtonNewGame" type="TextureButton" parent="UI/MarginContainer/GameWinPanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("16_ccljq")
+
+[node name="InstructionsPanel" type="CenterContainer" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/InstructionsPanel"]
+layout_mode = 2
+texture = ExtResource("14_34frw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/InstructionsPanel"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/InstructionsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1100
+theme_override_styles/separator = ExtResource("9_7pvxh")
+
+[node name="ButtonHowtoContiue" type="TextureButton" parent="UI/MarginContainer/InstructionsPanel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_8ui5n")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_l5cgh")
@@ -266,6 +379,9 @@ volume_db = 4.0
 [connection signal="body_exited" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_entered"]
 [connection signal="body_exited" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_exited"]
-[connection signal="pressed" from="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ButtonHandFree" to="UI" method="_on_button_hand_free_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ButtonReset" to="UI" method="_on_button_reset_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/ButtonContinue" to="UI" method="_on_button_continue_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/GameUI/VBoxContainer/HBoxContainer/ButtonHandFree" to="UI" method="_on_button_hand_free_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/GameUI/VBoxContainer/HBoxContainer/ButtonReset" to="UI" method="_on_button_reset_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/MarginContainer/ButtonContinue" to="UI" method="_on_button_continue_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/GameStartPanel/VBoxContainer/ButtonStartGame" to="UI" method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/GameWinPanel/VBoxContainer/MarginContainer2/ButtonNewGame" to="UI" method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/InstructionsPanel/VBoxContainer/ButtonHowtoContiue" to="UI" method="_on_button_howto_contiue_pressed"]
