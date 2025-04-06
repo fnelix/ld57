@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_awvuk"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_5mdix"]
-[ext_resource type="Texture2D" uid="uid://chmf87ycq3106" path="res://assets/sprites/layouts/bg_lady_bag.png" id="3_eap3p"]
-[ext_resource type="Texture2D" uid="uid://cklg0un73p4je" path="res://assets/sprites/layouts/bg_lady_bag_front.png" id="4_13h27"]
+[ext_resource type="Texture2D" uid="uid://chmf87ycq3106" path="res://assets/sprites/backgrounds/bg_lady_bag.png" id="3_eap3p"]
+[ext_resource type="Texture2D" uid="uid://cklg0un73p4je" path="res://assets/sprites/backgrounds/bg_lady_bag_front.png" id="4_13h27"]
 [ext_resource type="PackedScene" uid="uid://c21830akv3dbj" path="res://scenes/items/lipstick.tscn" id="4_gkpsl"]
 [ext_resource type="PackedScene" uid="uid://b0jaa5vcg1oeg" path="res://scenes/items/hair01.tscn" id="8_6njla"]
 [ext_resource type="PackedScene" uid="uid://ou6kmawtmyrp" path="res://scenes/items/earpod_L.tscn" id="9_nt3t4"]

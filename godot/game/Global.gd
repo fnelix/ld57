@@ -33,7 +33,7 @@ var levels = [
 	preload("res://scenes/levels/level_jeans_key.tscn"),
 	preload("res://scenes/levels/level_backpack_pens.tscn"),
 	preload("res://scenes/levels/level_bag_nuts.tscn"),
-	
+	preload("res://scenes/levels/level_glass_coin.tscn"),
 	preload("res://scenes/levels/level_jellybeans.tscn")
 	]
 func _ready() -> void:
