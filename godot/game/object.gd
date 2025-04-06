@@ -12,6 +12,8 @@ func _ready() -> void:
 	self.collision_mask = pow(2,0) + pow(2,1) + pow(2,2) + pow(2,3) + pow(2,4)
 	target_color = Color.BLACK
 	self.modulate = target_color
+	
+	self.mass = 0.1
 
 
 

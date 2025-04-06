@@ -20,7 +20,8 @@ func _physics_process(delta: float) -> void:
 					if collider.has_meta("type"):
 						var pos = coll.get_position()
 						#collider.apply_impulse(motion * 4.0, pos)
-						collider.apply_central_force(motion * 150.0)
+						#collider.apply_central_force(motion * 10.0)
+						collider.apply_central_impulse(motion.normalized() * 20.0)
 			#velocity = motion
 			#move_and_slide()
 		else:

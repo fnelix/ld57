@@ -28,7 +28,7 @@ var flag_continue = false
 var current_level = 0
 
 var levels = [ 
-	preload("res://scenes/levels/level1.tscn"),
+	preload("res://scenes/levels/level_lipstick.tscn"),
 	preload("res://scenes/levels/level_backpack_pens.tscn"),
 	preload("res://scenes/levels/level_jellybeans.tscn")
 	]
