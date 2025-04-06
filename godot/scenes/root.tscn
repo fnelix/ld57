@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=17 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5be27xlio7of" path="res://assets/sprites/layouts/button_reset.png" id="8_l5cgh"]
 [ext_resource type="StyleBox" path="res://assets/styleboxflat_empty.tres" id="9_7pvxh"]
 [ext_resource type="StyleBox" uid="uid://cfbki43yl7c56" path="res://assets/stylebox1.tres" id="10_7pvxh"]
+[ext_resource type="AudioStream" uid="uid://wcbpfw5c5uy8" path="res://assets/sounds/hbh_music.mp3" id="13_l5cgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kycxp"]
 radius = 90.0
@@ -225,6 +226,10 @@ theme_override_styles/normal = ExtResource("10_7pvxh")
 text = "Continue
 "
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_l5cgh")
+autoplay = true
 
 [connection signal="mouse_entered" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_exited"]
