@@ -18,6 +18,9 @@ func _physics_process(delta: float) -> void:
 				if coll:
 					var collider = coll.get_collider()
 					if collider.has_meta("type"):
+						
+						Global.trigger_crunch_sfx()
+						
 						var pos = coll.get_position()
 						#collider.apply_impulse(motion * 4.0, pos)
 						#collider.apply_central_force(motion * 10.0)

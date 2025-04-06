@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddibcdprb76ly"]
+[gd_scene load_steps=20 format=3 uid="uid://ddibcdprb76ly"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_n14fo"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_flrou"]
 [ext_resource type="Texture2D" uid="uid://0aau4g4cxnan" path="res://assets/sprites/backgrounds/bg_paperbag.png" id="3_w1pdj"]
+[ext_resource type="AudioStream" uid="uid://c74mvh14ernpq" path="res://assets/sounds/crunch_paper1.wav" id="3_w7ivp"]
+[ext_resource type="AudioStream" uid="uid://btj581cbhhn1q" path="res://assets/sounds/crunch_paper2.wav" id="4_3pudp"]
 [ext_resource type="Texture2D" uid="uid://dk7k7tvx7o2hm" path="res://assets/sprites/backgrounds/bg_paperbag_front.png" id="4_56bji"]
+[ext_resource type="AudioStream" uid="uid://bequkq8hkojyw" path="res://assets/sounds/crunch_paper3.wav" id="5_a86ia"]
 [ext_resource type="PackedScene" uid="uid://4jranlqcxcyr" path="res://scenes/items/peanut01.tscn" id="5_h2kd8"]
 [ext_resource type="PackedScene" uid="uid://bv40tqob32aph" path="res://scenes/items/peanut02.tscn" id="6_smk2s"]
 [ext_resource type="PackedScene" uid="uid://bgi5f6lakj1u6" path="res://scenes/items/peanut03.tscn" id="7_s8ogb"]
@@ -21,6 +24,8 @@ script = ExtResource("2_flrou")
 prompt = "This is nuts!
 I just want a walnut."
 win_objects = Array[String](["walnut"])
+hand_type = 0
+sounds = Array[AudioStream]([ExtResource("3_w7ivp"), ExtResource("4_3pudp"), ExtResource("5_a86ia")])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]

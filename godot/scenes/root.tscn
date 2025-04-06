@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=26 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
@@ -20,8 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://ynmwwcwm66ii" path="res://assets/sprites/layouts/gameend.png" id="15_f3p2p"]
 [ext_resource type="AudioStream" uid="uid://cvtlsa2fwmqx7" path="res://assets/sounds/ugh2.wav" id="15_gt4lb"]
 [ext_resource type="Texture2D" uid="uid://stgb0k6eic7w" path="res://assets/sprites/layouts/button_playagain.png" id="16_ccljq"]
-[ext_resource type="AudioStream" uid="uid://chcalwuutgblr" path="res://assets/sounds/ugh3.wav" id="16_ya6yc"]
-[ext_resource type="AudioStream" uid="uid://c4dqqo6g8d8gi" path="res://assets/sounds/ugh4.wav" id="17_mflgo"]
 [ext_resource type="AudioStream" uid="uid://dk4jhnoysmspi" path="res://assets/sounds/glock1.wav" id="18_ya6yc"]
 [ext_resource type="AudioStream" uid="uid://m05e02resuc3" path="res://assets/sounds/glock2.wav" id="19_mflgo"]
 
@@ -29,8 +27,10 @@
 streams_count = 4
 stream_0/stream = ExtResource("14_log26")
 stream_1/stream = ExtResource("15_gt4lb")
-stream_2/stream = ExtResource("16_ya6yc")
-stream_3/stream = ExtResource("17_mflgo")
+stream_2/stream = ExtResource("15_gt4lb")
+stream_3/stream = ExtResource("15_gt4lb")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f3p2p"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ui5n"]
 streams_count = 2
@@ -296,6 +296,7 @@ texture_normal = ExtResource("14_8ui5n")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_l5cgh")
+volume_db = -1.5
 autoplay = true
 
 [node name="SFX" type="Node" parent="."]
@@ -304,6 +305,12 @@ autoplay = true
 stream = SubResource("AudioStreamRandomizer_34frw")
 volume_db = -1.0
 pitch_scale = 0.9
+
+[node name="level" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_f3p2p")
+volume_db = -1.0
+pitch_scale = 0.9
+max_polyphony = 3
 
 [node name="checkok" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_8ui5n")
