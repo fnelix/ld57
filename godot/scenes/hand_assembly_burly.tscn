@@ -9,10 +9,10 @@
 radius = 90.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j287u"]
-radius = 30.0
+radius = 52.7731
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jh1ax"]
-radius = 58.1378
+radius = 96.2549
 
 [node name="HandAssembly" type="Node2D"]
 
@@ -48,7 +48,7 @@ texture = ExtResource("4_m4pr3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand"]
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 177.66, 94, 272, 104, 435.66, 80, 436, 50, 365.66, -44, 372, -50, 417.66, -82, 425.66, -88, 298, -86, 245.66, -64, 170, -88, -196.34)
+polygon = PackedVector2Array(-154, -618.34, 72, -626.34, 58, -224, 36, 177.66, 94, 273.66, 126, 411.66, 90, 425.66, 42, 385.66, -44, 372, -90, 409.66, -134, 413.66, -132, 313.66, -112, 257.66, -92, 177.66, -144, -186.34)
 
 [node name="Area2D_Grab" type="Area2D" parent="Hand"]
 position = Vector2(-4, 260.83)
@@ -57,7 +57,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Grab"]
-position = Vector2(4, -22)
+position = Vector2(2, -20)
 shape = SubResource("CircleShape2D_j287u")
 debug_color = Color(0.970241, 0, 0.456039, 0.42)
 
@@ -66,7 +66,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Feel"]
-position = Vector2(17, 211.83)
+position = Vector2(2, 226.83)
 shape = SubResource("CircleShape2D_jh1ax")
 debug_color = Color(0.791469, 0.427967, 3.85046e-07, 0.42)
 

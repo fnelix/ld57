@@ -117,6 +117,15 @@ func reset_stage():
 
 	score.init_level()
 	
+	## ugly: level sounds to sfx.level
+	var rzr : AudioStreamRandomizer = sfx.get_node("level").stream #AudioStreamRandomizer
+	
+	while rzr.streams_count > 0:
+		rzr.remove_stream(0)
+	
+	for stream in level.levelinfo.sounds:
+		rzr.add_stream(-1, stream)
+	
 	setup_hand_assembly(level.levelinfo.hand_type)
 	
 	player.reset()
@@ -248,7 +257,15 @@ func rand_norm() -> float:
 	return (randf()-0.5)*2.0
 
 
+var crunch_sfx_cooldown=0
+
+
 func _physics_process(delta: float) -> void:
+	
+	if crunch_sfx_cooldown > 0:
+		crunch_sfx_cooldown -= delta
+	else:
+		crunch_sfx_cooldown = 0
 	
 	if flag_continue:
 		flag_continue = false
@@ -279,6 +296,11 @@ func _physics_process(delta: float) -> void:
 			state_continue = ContinueStates.INVALID
 		
 
-	
+
+func trigger_crunch_sfx():
+	if crunch_sfx_cooldown <= 0:
+		sfx.get_node("level").play()
+		
+		crunch_sfx_cooldown = 0.4+Global.rand_norm()*0.3
 	
 	

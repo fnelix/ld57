@@ -1,11 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://q1axetm6n1k1"]
+[gd_scene load_steps=21 format=3 uid="uid://q1axetm6n1k1"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_4gxpt"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_c31yf"]
 [ext_resource type="Texture2D" uid="uid://dlbkg7sbikt4s" path="res://assets/sprites/backgrounds/bg_jar.png" id="3_kav1g"]
+[ext_resource type="AudioStream" uid="uid://qh6nh41fjsjk" path="res://assets/sounds/crunch_glass1.wav" id="3_rk6k6"]
 [ext_resource type="Texture2D" uid="uid://cc27e51hxj0gk" path="res://assets/sprites/backgrounds/bg_jar_front.png" id="4_pp1q6"]
+[ext_resource type="AudioStream" uid="uid://k2i7m3flakun" path="res://assets/sounds/crunch_glass2.wav" id="4_prdcw"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_200.tscn" id="5_r04qx"]
+[ext_resource type="AudioStream" uid="uid://vt3t1dcsol7e" path="res://assets/sounds/crunch_glass3.wav" id="5_ur2dj"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_100.tscn" id="6_4gxpt"]
+[ext_resource type="AudioStream" uid="uid://dx7ge2ub06cy" path="res://assets/sounds/crunch_glass4.wav" id="6_h7mlg"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_50.tscn" id="7_c31yf"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_10.tscn" id="8_12ji0"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_5.tscn" id="9_7c8ur"]
@@ -22,6 +26,7 @@ prompt = "Tip the delivery guy!
 There's a 2 EUR coin in there."
 win_objects = Array[String](["EUR"])
 hand_type = 0
+sounds = Array[AudioStream]([ExtResource("3_rk6k6"), ExtResource("4_prdcw"), ExtResource("5_ur2dj"), ExtResource("6_h7mlg")])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]

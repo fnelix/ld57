@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://btmyudi8a8bls"]
+[gd_scene load_steps=18 format=3 uid="uid://btmyudi8a8bls"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_2g174"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_f35t8"]
+[ext_resource type="AudioStream" uid="uid://dav3q0r0bftax" path="res://assets/sounds/crunch_cardboard1.wav" id="3_f35t8"]
 [ext_resource type="Texture2D" uid="uid://bey2nj6jbitfx" path="res://assets/sprites/backgrounds/bg_toolbox.png" id="3_o412n"]
 [ext_resource type="Texture2D" uid="uid://dao1wcbbg8oyp" path="res://assets/sprites/backgrounds/bg_toolbox_front.png" id="4_6bb3l"]
+[ext_resource type="AudioStream" uid="uid://bei341ps1fjpo" path="res://assets/sounds/crunch_cardboard2.wav" id="4_8an2p"]
 [ext_resource type="PackedScene" uid="uid://bnyvhe7h6amcr" path="res://scenes/items/screwdriver_flat.tscn" id="5_l13hg"]
+[ext_resource type="AudioStream" uid="uid://cr4f75twlyxo" path="res://assets/sounds/crunch_cardboard3.wav" id="5_y3ly0"]
 [ext_resource type="PackedScene" uid="uid://gmfkky6ghc0e" path="res://scenes/items/wrench_11.tscn" id="6_ibitj"]
 [ext_resource type="PackedScene" uid="uid://bfd4xjxfg0y52" path="res://scenes/items/wrench_12.tscn" id="7_mrkwk"]
 [ext_resource type="PackedScene" uid="uid://cli2d8e4ym0wv" path="res://scenes/items/wrench_14.tscn" id="8_p2j5x"]
@@ -20,6 +23,7 @@ prompt = "The car broke down again.
 Hand me the size 14 wrench."
 win_objects = Array[String](["14"])
 hand_type = 1
+sounds = Array[AudioStream]([ExtResource("3_f35t8"), ExtResource("4_8an2p"), ExtResource("5_y3ly0")])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]
