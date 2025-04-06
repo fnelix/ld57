@@ -42,6 +42,8 @@ func _check_object_success(i):
 	
 	Global.ui.mod_prompt_text(name)
 	
+	Global.sfx.get_node("checkok").play()
+	
 	
 
 func check_object(obj : Node):
@@ -84,6 +86,8 @@ func check_object(obj : Node):
 	
 func count_drop():
 	level_drops += 1
+	
+	Global.sfx.get_node("ugh").play()
 
 
 func _physics_process(delta: float) -> void:

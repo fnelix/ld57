@@ -7,6 +7,7 @@ var camera : Node2D
 var score: Node2D
 var ui: Node
 var level: Node = null
+var sfx: Node
 
 ##
 var is_touch = false
@@ -57,6 +58,10 @@ func setup_nodes():
 	ui = get_node("/root/root/UI")
 	if !ui:
 		print("setup_nodes(): ui node not found")
+	
+	sfx = get_node("/root/root/SFX")
+	if !sfx:
+		print("setup_nodes(): sfx node not found")
 
 
 func reset_stage():
