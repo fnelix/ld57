@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8pxutwg1laef"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_ce6u5"]
+[ext_resource type="Texture2D" uid="uid://bv4wtbt8h32jn" path="res://assets/sprites/items/cashew01.png" id="2_2ltdp"]
+
+[node name="cashew01" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_ce6u5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2ltdp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(27, -28.7, 16, -30, 8.3, -27, 6, -11, 0.0999985, -6, -14.5, -6, -28, -15, -34.2, -15, -40, -8, -40, 4, -38, 9.8, -27, 22.6, -7, 29.3, 14.7, 27, 31.2, 14, 38, 4, 38, -11.5, 34, -20.9)

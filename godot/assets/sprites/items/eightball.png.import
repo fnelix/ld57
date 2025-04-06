@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chmf87ycq3106"
-path="res://.godot/imported/bg_lady_bag.png-6b97d2402cea4a5ad2b724c71c922e83.ctex"
+uid="uid://qm3j5mtfgudc"
+path="res://.godot/imported/eightball.png-0ad5769b153482dee169fea6645b4261.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/backgrounds/bg_lady_bag.png"
-dest_files=["res://.godot/imported/bg_lady_bag.png-6b97d2402cea4a5ad2b724c71c922e83.ctex"]
+source_file="res://assets/sprites/items/eightball.png"
+dest_files=["res://.godot/imported/eightball.png-0ad5769b153482dee169fea6645b4261.ctex"]
 
 [params]
 

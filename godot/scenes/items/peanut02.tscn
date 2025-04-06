@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv40tqob32aph"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_u4isd"]
+[ext_resource type="Texture2D" uid="uid://b1o7mw6x0bn8q" path="res://assets/sprites/items/peanut02.png" id="2_u4isd"]
+
+[node name="peanut02" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_u4isd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_u4isd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(8, -26, -2, -20, -16, -6, -20, 2, -21.5, 16.2, -15.5, 25.5, 0.200001, 25.5, 8, 20, 14.9, 14.5, 20.5, -0.1, 20.5, -15, 18, -22, 14, -26)

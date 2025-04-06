@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chmf87ycq3106"
-path="res://.godot/imported/bg_lady_bag.png-6b97d2402cea4a5ad2b724c71c922e83.ctex"
+uid="uid://d1emdh087oqwl"
+path="res://.godot/imported/coin_20.png-f58317f33d6159140e16305907e40f25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/backgrounds/bg_lady_bag.png"
-dest_files=["res://.godot/imported/bg_lady_bag.png-6b97d2402cea4a5ad2b724c71c922e83.ctex"]
+source_file="res://assets/sprites/items/coin_20.png"
+dest_files=["res://.godot/imported/coin_20.png-f58317f33d6159140e16305907e40f25.ctex"]
 
 [params]
 

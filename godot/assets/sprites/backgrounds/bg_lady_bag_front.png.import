@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cklg0un73p4je"
-path="res://.godot/imported/bg_lady_bag_front.png-8a1d2106ae53c993dce366c80ba15f19.ctex"
+path="res://.godot/imported/bg_lady_bag_front.png-319b55704e4995ba481183cacadeb72a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/layouts/bg_lady_bag_front.png"
-dest_files=["res://.godot/imported/bg_lady_bag_front.png-8a1d2106ae53c993dce366c80ba15f19.ctex"]
+source_file="res://assets/sprites/backgrounds/bg_lady_bag_front.png"
+dest_files=["res://.godot/imported/bg_lady_bag_front.png-319b55704e4995ba481183cacadeb72a.ctex"]
 
 [params]
 

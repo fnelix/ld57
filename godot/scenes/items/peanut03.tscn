@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgi5f6lakj1u6"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_6tnjq"]
+[ext_resource type="Texture2D" uid="uid://xr525lju8v7b" path="res://assets/sprites/items/peanut03.png" id="2_6tnjq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6tnjq"]
+radius = 18.8656
+height = 57.4092
+
+[node name="peanut03" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_6tnjq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6tnjq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = 0.574489
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_6tnjq")
+metadata/_edit_lock_ = true
