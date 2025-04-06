@@ -140,7 +140,6 @@ metadata/_edit_lock_ = true
 
 [node name="GameUI" type="MarginContainer" parent="UI/MarginContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -228,7 +227,7 @@ theme_override_styles/separator = ExtResource("9_7pvxh")
 [node name="LevelWinPanel" type="MarginContainer" parent="UI/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-z_index = 6
+z_index = 8
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/LevelWinPanel"]

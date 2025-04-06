@@ -27,17 +27,12 @@ func show_level_win(value: bool):
 	%LevelWinPanel.visible = value
 	%LabelLevelText.text = "Time: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
 	
-	if value == true:
-		%GameUI.visible = false
-	else:
-		%GameUI.visible = true
-	
 
 	
 func show_game_win(value: bool):
 
 	%GameWinPanel.visible = value
-	%LabelGameText.text = "Time: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.game_time), Global.score.game_drops]
+	%LabelGameText.text = "Overall Score:\nTime: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.game_time), Global.score.game_drops]
 
 func show_game_start(value: bool):
 	%GameStartPanel.visible = value

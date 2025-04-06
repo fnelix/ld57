@@ -148,6 +148,8 @@ func win_level():
 	
 	ui.show_level_win(true)
 	
+	ui.show_game_ui(false)
+	
 	get_node("/root/root/World").modulate = Color.DIM_GRAY
 	
 	get_tree().paused = true
@@ -155,6 +157,8 @@ func win_level():
 
 func state_game_next_level():
 	ui.show_level_win(false)
+	
+	ui.show_game_ui(true)
 	
 	get_node("/root/root/World").modulate = Color.WHITE
 
