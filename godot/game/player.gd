@@ -159,7 +159,7 @@ func _physics_process(delta: float) -> void:
 				
 				var h = body.get_node("Sprite2D").get_rect().size.y * body.get_node("Sprite2D").scale.y
 			
-				#_add_joint(body, body.global_position + axis * h * -0.5)
+				_add_joint(body, body.global_position + axis * h * -0.5)
 				_add_joint(body, body.global_position + axis * h * 0.0)
 				_add_joint(body, body.global_position + axis * h * 0.5)
 					

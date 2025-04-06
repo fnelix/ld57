@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://co74sqn4ogf2v"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_yvnfb"]
+[ext_resource type="Texture2D" uid="uid://bxajsamdwcnjf" path="res://assets/sprites/items/walnut.png" id="2_yvnfb"]
+
+[node name="walnut" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_yvnfb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yvnfb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-6, -38, -26, -32, -32, -22, -42, -18, -50, 0, -48, 10, -40, 12, -36, 16, -42, 24, -38, 32, -20, 34, -4, 42, 12, 38, 18, 32, 32, 30, 46, 16, 52, 2, 44, -10, 28, -4, 26, -16, 40, -20, 40, -32, 30, -38)
