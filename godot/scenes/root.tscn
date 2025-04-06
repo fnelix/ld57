@@ -1,10 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=27 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
-[ext_resource type="Script" uid="uid://dnfwi8l0y3whx" path="res://game/player.gd" id="2_lrqlo"]
-[ext_resource type="Texture2D" uid="uid://djl0rrpp13d6x" path="res://assets/sprites/hand/hand_closed.png" id="5_7pvxh"]
-[ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="5_kycxp"]
+[ext_resource type="PackedScene" uid="uid://brdsfpu77gumu" path="res://scenes/hand_assembly_default.tscn" id="3_ccljq"]
 [ext_resource type="Script" uid="uid://8jnjvhnspu4e" path="res://game/ui.gd" id="7_5sfjl"]
 [ext_resource type="FontFile" uid="uid://blti7cl6jhtgx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="7_j287u"]
 [ext_resource type="Texture2D" uid="uid://y1i0ckf8g762" path="res://assets/sprites/layouts/button_hand_free.png" id="7_xsp7o"]
@@ -26,15 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://c4dqqo6g8d8gi" path="res://assets/sounds/ugh4.wav" id="17_mflgo"]
 [ext_resource type="AudioStream" uid="uid://dk4jhnoysmspi" path="res://assets/sounds/glock1.wav" id="18_ya6yc"]
 [ext_resource type="AudioStream" uid="uid://m05e02resuc3" path="res://assets/sounds/glock2.wav" id="19_mflgo"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kycxp"]
-radius = 90.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j287u"]
-radius = 30.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jh1ax"]
-radius = 58.1378
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_34frw"]
 streams_count = 4
@@ -62,59 +51,7 @@ scale = Vector2(1, 0.965926)
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
 
-[node name="HandAssembly" type="Node2D" parent="."]
-
-[node name="Player" type="CharacterBody2D" parent="HandAssembly"]
-process_mode = 1
-position = Vector2(-14, -461)
-collision_layer = 512
-collision_mask = 512
-input_pickable = true
-script = ExtResource("2_lrqlo")
-
-[node name="CollisionShape2D_Drag" type="CollisionShape2D" parent="HandAssembly/Player"]
-position = Vector2(14, 194)
-shape = SubResource("CircleShape2D_kycxp")
-
-[node name="Hand" type="RigidBody2D" parent="HandAssembly"]
-process_mode = 1
-position = Vector2(-13, -456.83)
-collision_layer = 4
-collision_mask = 3
-gravity_scale = 0.0
-lock_rotation = true
-linear_damp = 10.0
-angular_damp = 1.0
-script = ExtResource("5_kycxp")
-
-[node name="Sprite2D" type="Sprite2D" parent="HandAssembly/Hand"]
-z_index = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_7pvxh")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HandAssembly/Hand"]
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 177.66, 94, 272, 104, 435.66, 80, 436, 50, 365.66, -44, 372, -50, 417.66, -82, 425.66, -88, 298, -86, 245.66, -64, 170, -88, -196.34)
-
-[node name="Area2D_Grab" type="Area2D" parent="HandAssembly/Hand"]
-position = Vector2(-4, 260.83)
-collision_layer = 2
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Grab"]
-position = Vector2(4, -22)
-shape = SubResource("CircleShape2D_j287u")
-debug_color = Color(0.970241, 0, 0.456039, 0.42)
-
-[node name="Area2D_Feel" type="Area2D" parent="HandAssembly/Hand"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HandAssembly/Hand/Area2D_Feel"]
-position = Vector2(17, 211.83)
-shape = SubResource("CircleShape2D_jh1ax")
-debug_color = Color(0.791469, 0.427967, 3.85046e-07, 0.42)
+[node name="HandAssembly" parent="." instance=ExtResource("3_ccljq")]
 
 [node name="UI" type="Node" parent="."]
 process_mode = 3
@@ -372,12 +309,6 @@ pitch_scale = 0.9
 stream = SubResource("AudioStreamRandomizer_8ui5n")
 volume_db = 4.0
 
-[connection signal="mouse_entered" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="HandAssembly/Player" to="HandAssembly/Player" method="_on_mouse_exited"]
-[connection signal="body_entered" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_entered"]
-[connection signal="body_exited" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_exited"]
 [connection signal="pressed" from="UI/MarginContainer/GameUI/VBoxContainer/HBoxContainer/ButtonHandFree" to="UI" method="_on_button_hand_free_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/GameUI/VBoxContainer/HBoxContainer/ButtonReset" to="UI" method="_on_button_reset_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/LevelWinPanel/MarginContainer/VBoxContainer/MarginContainer/ButtonContinue" to="UI" method="_on_button_continue_pressed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds0mt28jaexhy"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_q8sqx"]
+[ext_resource type="Texture2D" uid="uid://c6u33bljqw8pp" path="res://assets/sprites/items/wrench_18.png" id="2_q8sqx"]
+
+[node name="wrench_18" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_q8sqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_q8sqx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.865437, 0.883846)
+polygon = PackedVector2Array(-13.5, -132.5, -25.5, -116.2, -25.5, -105.9, -12.5, -85.9, -12.5, 79.8, -25.5, 100.9, -25.5, 113.9, -20.9, 125.5, -16, 126, -9.5, 105.9, 0, 105.5, 7, 109.5, 8.5, 115.5, 3.9, 132.5, 10, 132, 18.8, 125.5, 25.9, 113.5, 24.5, 101.8, 14.4, 89.5, 10, 75.5, 9.5, -84.9, 21.5, -103.9, 21.5, -115.9, 16.8, -126.5, 13.1, -126.5, 7.5, -110.8, 3.6, -107.8, -3.8, -108.5, -10.2, -114, -6.5, -124.5, -6.5, -132.5)

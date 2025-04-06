@@ -1,5 +1,8 @@
 extends PhysicsBody2D
 
+@export var openTexture : Texture
+@export var closedTexture : Texture
+
 var mouse_position: Vector2
 var mouse_on_player: bool = false
 var mouse_drag: bool = false
@@ -22,6 +25,7 @@ var hold_joints = []
 
 func _ready() -> void:
 	hand = get_node("../Hand")
+	hand.get_node("Sprite2D").texture = openTexture
 
 	
 func _input(event: InputEvent) -> void:
@@ -50,7 +54,7 @@ func reset():
 				
 		hold_bodies.clear()
 		
-		hand.get_node("Sprite2D").texture = preload("res://assets/sprites/hand/hand_open.png")
+		hand.get_node("Sprite2D").texture = openTexture  #preload("res://assets/sprites/hand/hand_open.png")
 		
 		mouse_drag = false
 		hand_hold = false
@@ -163,7 +167,7 @@ func _physics_process(delta: float) -> void:
 				_add_joint(body, body.global_position + axis * h * 0.0)
 				_add_joint(body, body.global_position + axis * h * 0.5)
 					
-			hand.get_node("Sprite2D").texture = preload("res://assets/sprites/hand/hand_closed.png")
+			hand.get_node("Sprite2D").texture = closedTexture #preload("res://assets/sprites/hand/hand_closed.png")
 	else:
 		if hand_hold:
 			# now releasing
@@ -178,7 +182,7 @@ func _physics_process(delta: float) -> void:
 				
 			hold_bodies.clear()
 			
-			hand.get_node("Sprite2D").texture = preload("res://assets/sprites/hand/hand_open.png")
+			hand.get_node("Sprite2D").texture = openTexture #reload("res://assets/sprites/hand/hand_open.png")
 		
 		
 		if not mouse_drag:# not dragging, reset position

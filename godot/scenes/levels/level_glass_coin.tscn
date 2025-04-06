@@ -21,6 +21,7 @@ script = ExtResource("2_c31yf")
 prompt = "Tip the delivery guy!
 There's a 2 EUR coin in there."
 win_objects = Array[String](["EUR"])
+hand_type = 0
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]
@@ -28,13 +29,13 @@ script = ExtResource("1_4gxpt")
 levelinfo = SubResource("Resource_ps2vj")
 
 [node name="Limit_out" type="Line2D" parent="."]
-position = Vector2(-3, -240)
+position = Vector2(-5, -203)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
 [node name="Limit_win" type="Line2D" parent="."]
-position = Vector2(-5, -184)
+position = Vector2(0, -136)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(0, 0.780392, 0, 1)

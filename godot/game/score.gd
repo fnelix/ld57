@@ -38,6 +38,8 @@ func init_level():
 	# set prompt
 	Global.ui.set_prompt_text(level_info.prompt)
 	
+	Global.current_hand_type = level_info.hand_type
+	
 	# init items done
 	level_items_done = []
 	for str in level_info.win_objects:

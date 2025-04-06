@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://btmyudi8a8bls"]
+
+[ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_2g174"]
+[ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_f35t8"]
+[ext_resource type="Texture2D" uid="uid://bey2nj6jbitfx" path="res://assets/sprites/backgrounds/bg_toolbox.png" id="3_o412n"]
+[ext_resource type="Texture2D" uid="uid://dao1wcbbg8oyp" path="res://assets/sprites/backgrounds/bg_toolbox_front.png" id="4_6bb3l"]
+[ext_resource type="PackedScene" uid="uid://bnyvhe7h6amcr" path="res://scenes/items/screwdriver_flat.tscn" id="5_l13hg"]
+[ext_resource type="PackedScene" uid="uid://gmfkky6ghc0e" path="res://scenes/items/wrench_11.tscn" id="6_ibitj"]
+[ext_resource type="PackedScene" uid="uid://bfd4xjxfg0y52" path="res://scenes/items/wrench_12.tscn" id="7_mrkwk"]
+[ext_resource type="PackedScene" uid="uid://cli2d8e4ym0wv" path="res://scenes/items/wrench_14.tscn" id="8_p2j5x"]
+[ext_resource type="PackedScene" uid="uid://i5teslod88hw" path="res://scenes/items/wrench_16.tscn" id="9_i6253"]
+[ext_resource type="PackedScene" uid="uid://ds0mt28jaexhy" path="res://scenes/items/wrench_18.tscn" id="10_2g174"]
+[ext_resource type="PackedScene" uid="uid://c21830akv3dbj" path="res://scenes/items/lipstick.tscn" id="11_i6253"]
+[ext_resource type="PackedScene" uid="uid://bxcqhkqhwyogs" path="res://scenes/items/match.tscn" id="13_2g174"]
+[ext_resource type="PackedScene" uid="uid://buwwobi2ahi0j" path="res://scenes/items/paperclip.tscn" id="13_lh3un"]
+
+[sub_resource type="Resource" id="Resource_ps2vj"]
+script = ExtResource("2_f35t8")
+prompt = "The car broke down again.
+Hand me the size 14 wrench."
+win_objects = Array[String](["14"])
+hand_type = 1
+metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_2g174")
+levelinfo = SubResource("Resource_ps2vj")
+
+[node name="Limit_out" type="Line2D" parent="."]
+position = Vector2(16, -215)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Limit_win" type="Line2D" parent="."]
+position = Vector2(21, -111)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(0, 0.780392, 0, 1)
+
+[node name="Bag" type="StaticBody2D" parent="."]
+collision_mask = 7
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
+polygon = PackedVector2Array(-131, 288, 123, 292, 121, -80, 149, -106, 142, 309, -144, 315, -144, -88, -120, -100)
+
+[node name="bag" type="Sprite2D" parent="Bag"]
+z_index = -8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_o412n")
+metadata/_edit_lock_ = true
+
+[node name="bag_fg" type="Sprite2D" parent="Bag"]
+z_index = 6
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6bb3l")
+metadata/_edit_lock_ = true
+
+[node name="screwdriver_flat" parent="." instance=ExtResource("5_l13hg")]
+position = Vector2(-92, 190)
+rotation = -0.210802
+
+[node name="wrench_11" parent="." instance=ExtResource("6_ibitj")]
+position = Vector2(39, 258)
+rotation = -1.64889
+
+[node name="wrench_12" parent="." instance=ExtResource("7_mrkwk")]
+position = Vector2(36, 147)
+rotation = 1.32861
+
+[node name="wrench_14" parent="." instance=ExtResource("8_p2j5x")]
+position = Vector2(16, 213)
+rotation = 1.05022
+
+[node name="wrench_16" parent="." instance=ExtResource("9_i6253")]
+position = Vector2(-62, 118)
+rotation = -0.161064
+
+[node name="wrench_18" parent="." instance=ExtResource("10_2g174")]
+position = Vector2(43, -32)
+rotation = -0.642129
+
+[node name="wrench_13" parent="." instance=ExtResource("6_ibitj")]
+position = Vector2(-23, 31)
+rotation = 0.292509
+
+[node name="Lipstick" parent="." instance=ExtResource("11_i6253")]
+position = Vector2(38, 100)
+rotation = 1.4139
+
+[node name="paperclip" parent="." instance=ExtResource("13_lh3un")]
+position = Vector2(28, 48)
+rotation = -1.86137
+
+[node name="Match" parent="." instance=ExtResource("13_2g174")]
+position = Vector2(109, -28)
+rotation = 0.0694536

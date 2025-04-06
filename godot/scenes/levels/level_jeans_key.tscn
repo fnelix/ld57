@@ -19,6 +19,7 @@ prompt = "Where's my gold key?
 
 "
 win_objects = Array[String](["gold"])
+hand_type = 0
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]

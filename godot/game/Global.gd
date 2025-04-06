@@ -28,13 +28,18 @@ var flag_continue = false
 
 var current_level = 0
 
+var current_hand_type : HandType = HandType.DEFAULT
+
 var levels = [ 
-	preload("res://scenes/levels/level_lipstick.tscn"),
-	preload("res://scenes/levels/level_jeans_key.tscn"),
-	preload("res://scenes/levels/level_backpack_pens.tscn"),
-	preload("res://scenes/levels/level_bag_nuts.tscn"),
-	preload("res://scenes/levels/level_glass_coin.tscn"),
-	preload("res://scenes/levels/level_jellybeans.tscn")
+	preload("res://scenes/levels/level_lipstick.tscn"),			# Lippenstift auf Damenhandtasche
+	preload("res://scenes/levels/level_jeans_key.tscn"),			# Goldener Schlüssel aus Jeans
+	preload("res://scenes/levels/level_backpack_pens.tscn"),		# Stift aus Rucksack
+	preload("res://scenes/levels/level_bag_nuts.tscn"),			# Walnuss aus Papiertasche
+	preload("res://scenes/levels/level_glass_coin.tscn"),			# 2 EUR aus Glas
+	preload("res://scenes/levels/level_tools_wrench.tscn"),		# Maulschlüssel aus Toolbox
+	
+	
+	preload("res://scenes/levels/level_jellybeans.tscn")			# Jellybeans aus Jeans
 	]
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -65,6 +70,33 @@ func setup_nodes():
 	if !sfx:
 		print("setup_nodes(): sfx node not found")
 
+enum HandType
+{
+	DEFAULT,
+	BURLY,
+	LADY
+}
+
+# mega ugly
+func setup_hand_assembly(type: HandType):
+	var ha = player.get_parent()
+	
+	if ha != null:
+		ha.queue_free()
+	
+	var root = get_node("/root/root/")
+	
+	
+	var new_ha = preload("res://scenes/hand_assembly_default.tscn").instantiate()
+	
+	if type == HandType.DEFAULT:
+		pass
+	elif type == HandType.BURLY:
+		new_ha = preload("res://scenes/hand_assembly_burly.tscn").instantiate()
+	
+	root.add_child(new_ha)
+		
+	self.player = new_ha.get_node("Player")
 
 func reset_stage():
 	# clean world
@@ -75,7 +107,7 @@ func reset_stage():
 	print("loading level ", current_level)
 	var newlevel = levels[current_level].instantiate()
 	
-	print(newlevel.levelinfo.prompt)
+	#print(newlevel.levelinfo.prompt)
 	
 	world.add_child(newlevel)
 	newlevel.init()
@@ -84,6 +116,8 @@ func reset_stage():
 	level = newlevel
 
 	score.init_level()
+	
+	setup_hand_assembly(level.levelinfo.hand_type)
 	
 	player.reset()
 	score.reset_stage()

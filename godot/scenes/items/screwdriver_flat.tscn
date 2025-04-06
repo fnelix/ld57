@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnyvhe7h6amcr"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_qmkw0"]
+[ext_resource type="Texture2D" uid="uid://8mc0qs3octi7" path="res://assets/sprites/items/screwdriver_flat.png" id="2_7kao3"]
+
+[node name="screwdriver_flat" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_qmkw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7kao3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-12.5, -167.5, -27.7, -161.5, -28, -136, -24.3, -122.5, -23.5, -122.5, -24, -32, -21.6, -25.7, -26.5, -14.9, -26.5, -8.89999, -22.5, -1.3, -8.9, 7.5, -10, 134, -10, 148, -6.5, 167.8, 9.3, 166.5, 12, 148, 10, 132, 8.5, 6.7, 19.7, 2.5, 28.5, -8.5, 21, -27.3, 24.5, -34.5, 23.5, -125.3, 27.5, -138.2, 27.5, -159.5, 22, -164, 11.5, -167.5)
