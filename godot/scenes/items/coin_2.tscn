@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwhr0fdl2ven2"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_iewxs"]
+[ext_resource type="Texture2D" uid="uid://b2nl6h2cy1rhb" path="res://assets/sprites/items/coin_2.png" id="2_iewxs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_br02a"]
+radius = 39.9997
+height = 91.9992
+
+[node name="coin_2" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_iewxs")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_iewxs")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.0041151
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_br02a")

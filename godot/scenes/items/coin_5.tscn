@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://phyum263p14l"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_gtgrx"]
+[ext_resource type="Texture2D" uid="uid://cga6tbwb1csr0" path="res://assets/sprites/items/coin_5.png" id="2_gtgrx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkyoy"]
+radius = 46.0078
+height = 107.999
+
+[node name="coin_5" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_gtgrx")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gtgrx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.0041151
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_tkyoy")
