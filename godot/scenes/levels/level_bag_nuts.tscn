@@ -24,7 +24,7 @@ script = ExtResource("2_flrou")
 prompt = "This is nuts!
 I just want a walnut."
 win_objects = Array[String](["walnut"])
-hand_type = 0
+hand_type = 2
 sounds = Array[AudioStream]([ExtResource("3_w7ivp"), ExtResource("4_3pudp"), ExtResource("5_a86ia")])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 

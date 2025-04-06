@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://df53n654rvppe"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_hrjdk"]
+[ext_resource type="Texture2D" uid="uid://bvettkfga2vgj" path="res://assets/sprites/items/screw_silver_plus02.png" id="2_hrjdk"]
+
+[node name="screw_silver_plus02" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_hrjdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hrjdk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.520375, 0.443503)
+polygon = PackedVector2Array(-5.76507, -60.879, -13.4518, -58.6242, -19.5, -49.7, -20, -36, -13.4518, -29.3121, -7.68676, -27.0573, -5.76507, 38.3312, 1.92169, 54.1146, 7.68676, 36.0764, 7.68676, -27.0573, 13.4518, -29.3121, 18.5, -35, 20, -46, 15.3735, -56.3694, 5.76507, -60.879)

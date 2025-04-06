@@ -38,6 +38,8 @@ var levels = [
 	preload("res://scenes/levels/level_glass_coin.tscn"),			# 2 EUR aus Glas
 	preload("res://scenes/levels/level_tools_wrench.tscn"),		# Maulschlüssel aus Toolbox
 	
+	preload("res://scenes/levels/level_bag_screws.tscn"),		# Maulschlüssel aus Toolbox
+	
 	
 	preload("res://scenes/levels/level_jellybeans.tscn")			# Jellybeans aus Jeans
 	]
@@ -93,6 +95,8 @@ func setup_hand_assembly(type: HandType):
 		pass
 	elif type == HandType.BURLY:
 		new_ha = preload("res://scenes/hand_assembly_burly.tscn").instantiate()
+	elif type == HandType.LADY:
+		new_ha = preload("res://scenes/hand_assembly_lady.tscn").instantiate()
 	
 	root.add_child(new_ha)
 		

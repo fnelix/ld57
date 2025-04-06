@@ -13,7 +13,9 @@ config_version=5
 config/name="LD57 - Handbag Havoc"
 run/main_scene="uid://cvjj7artcvxcb"
 config/features=PackedStringArray("4.4")
-boot_splash/show_image=false
+boot_splash/bg_color=Color(1, 0.898039, 0.721569, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://b08gcr3jiln0f"
 config/icon="res://icon.png"
 
 [autoload]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuwf8ppa5vawk"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_6oam6"]
+[ext_resource type="Texture2D" uid="uid://bsbyyscnlvjb6" path="res://assets/sprites/items/screw_gold_plus03.png" id="2_y5v8t"]
+
+[node name="screw_copper_plus03" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_6oam6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.482, 0.16, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_y5v8t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(0, 8)
+scale = Vector2(0.520375, 0.443503)
+polygon = PackedVector2Array(-5.76507, -60.879, -13.4518, -58.6242, -19.5, -49.7, -20, -36, -13.4518, -29.3121, -7.68676, -27.0573, -5.76507, 11.2739, 1.92169, 27.0573, 7.68676, 11.2739, 7.68676, -27.0573, 13.4518, -29.3121, 18.5, -35, 20, -46, 15.3735, -56.3694, 5.76507, -60.879)
