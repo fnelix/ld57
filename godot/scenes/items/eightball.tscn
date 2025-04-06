@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://r0ecwpkd76c6"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_mun3l"]
+[ext_resource type="Texture2D" uid="uid://qm3j5mtfgudc" path="res://assets/sprites/items/eightball.png" id="2_mun3l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pa1d8"]
+radius = 63.561
+
+[node name="eightball" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_mun3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mun3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_pa1d8")

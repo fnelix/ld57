@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddibcdprb76ly"]
+[gd_scene load_steps=17 format=3 uid="uid://ddibcdprb76ly"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_n14fo"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_flrou"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c6lkwaydtgvgp" path="res://scenes/items/cashew03.tscn" id="11_w7ivp"]
 [ext_resource type="PackedScene" uid="uid://b0jaa5vcg1oeg" path="res://scenes/items/hair01.tscn" id="12_3pudp"]
 [ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="13_smk2s"]
+[ext_resource type="PackedScene" uid="uid://c37l8avt82kr8" path="res://scenes/items/hair07.tscn" id="14_q2uhj"]
+[ext_resource type="PackedScene" uid="uid://dbly56mbol0h6" path="res://scenes/items/hair09.tscn" id="15_xieu2"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_flrou")
@@ -144,6 +146,19 @@ position = Vector2(-99, 175)
 [node name="peanut14" parent="." instance=ExtResource("6_smk2s")]
 position = Vector2(37, 83)
 
+[node name="cashew13" parent="." instance=ExtResource("9_xieu2")]
+position = Vector2(46, -95)
+rotation = 1.96933
+
+[node name="cashew14" parent="." instance=ExtResource("11_w7ivp")]
+position = Vector2(-44, -21)
+
+[node name="peanut20" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-35, -74)
+
+[node name="peanut21" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(89, 13)
+
 [node name="peanut15" parent="." instance=ExtResource("7_s8ogb")]
 position = Vector2(-17, -33)
 rotation = -1.35272
@@ -175,3 +190,9 @@ rotation = -1.22789
 [node name="Hair02" parent="." instance=ExtResource("13_smk2s")]
 position = Vector2(-47, 28)
 rotation = 0.553197
+
+[node name="hair07" parent="." instance=ExtResource("14_q2uhj")]
+position = Vector2(6, -41)
+
+[node name="hair09" parent="." instance=ExtResource("15_xieu2")]
+position = Vector2(-9, 111)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q1axetm6n1k1"]
+[gd_scene load_steps=17 format=3 uid="uid://q1axetm6n1k1"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_4gxpt"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_c31yf"]
@@ -12,11 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://chyh670n5a0yx" path="res://scenes/items/coin_1.tscn" id="10_axgga"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_2.tscn" id="11_kcrjr"]
 [ext_resource type="PackedScene" path="res://scenes/items/coin_20.tscn" id="12_rk6k6"]
+[ext_resource type="PackedScene" uid="uid://buwwobi2ahi0j" path="res://scenes/items/paperclip.tscn" id="13_4gxpt"]
+[ext_resource type="PackedScene" uid="uid://c37l8avt82kr8" path="res://scenes/items/hair07.tscn" id="14_12ji0"]
+[ext_resource type="PackedScene" uid="uid://briqchntorj1p" path="res://scenes/items/hair05.tscn" id="15_7c8ur"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_c31yf")
 prompt = "Tip the delivery guy!
-There's an 2 EUR coin in there."
+There's a 2 EUR coin in there."
 win_objects = Array[String](["EUR"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
@@ -41,7 +44,7 @@ collision_mask = 7
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
-polygon = PackedVector2Array(-118, -47, -118, 257, -111, 276, -35, 289, 34, 288, 121, 271, 115, -67, 84, -83, 90, -119, 88, -153, 121, -141, 138, -108, 139, 307, 4, 318, -134, 310, -139, -111, -127, -136, -104, -151, -88, -126, -89, -73)
+polygon = PackedVector2Array(-118, -47, -118, 257, -105, 273, -37, 289, 34, 288, 121, 271, 115, -67, 84, -83, 90, -119, 88, -153, 121, -141, 138, -108, 139, 307, 4, 318, -134, 310, -139, -111, -127, -136, -104, -151, -88, -126, -89, -73)
 
 [node name="bag" type="Sprite2D" parent="Bag"]
 z_index = -8
@@ -93,3 +96,12 @@ position = Vector2(-93, 9)
 
 [node name="coin_51" parent="Bag" instance=ExtResource("7_c31yf")]
 position = Vector2(69, -1)
+
+[node name="paperclip" parent="Bag" instance=ExtResource("13_4gxpt")]
+position = Vector2(-105, 198)
+
+[node name="hair07" parent="." instance=ExtResource("14_12ji0")]
+position = Vector2(104, 131)
+
+[node name="hair05" parent="." instance=ExtResource("15_7c8ur")]
+position = Vector2(33, 57)

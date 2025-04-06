@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd8d40amt730j"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_h2w8y"]
+[ext_resource type="Texture2D" uid="uid://uu6kxoj4bqi6" path="res://assets/sprites/items/keys_eightball.png" id="2_h2w8y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pa1d8"]
+radius = 63.561
+
+[node name="Keys_eightball" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_h2w8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h2w8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, -49)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_pa1d8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-17, 21)
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(26, -112, 12.3, -109, -3.9, -92.9, -20.2, -92, -28, -88, -40.3, -80, -47.7, -67, -48, -46, -50, -35.5, -91.8, 12, -95, 16.4, -94, 27.4, -94, 39.7, -79.2, 41, -68, 36, -60.8, 34, -59.6, 21.6, -50, 14, -41.3, 13, -35.7, -0.800003, -27.2, -3, -28, 22.9, -33.3, 27, -34, 44, -39, 51.8, -45.7, 55, -48, 68, -43.2, 91, -37.1, 91, -19, 82, -16.3, 82, 9, 21.8, 29.1, 14.1, 35.1, 21.8, 37, 56.2, 37, 61.9, 44, 67.6, 44, 75.9, 38, 79.9, 38, 97.7, 49, 108.6, 53.9, 112.7, 61.6, 105, 70, 96, 73.4, 96, 72, 81, 72, 22.9, 83.4, 14, 89, -21.9, 89, -44.9, 78.8, -53.1, 82, -63.4, 82, -75.9, 72, -96.9, 54, -110.4)

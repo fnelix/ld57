@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://boyx7krnnb8ir"]
+[gd_scene load_steps=14 format=3 uid="uid://boyx7krnnb8ir"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_8jv0h"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_ikk2s"]
@@ -11,10 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://ousuj6lmux6h" path="res://scenes/items/cigarette.tscn" id="9_4j1m7"]
 [ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="10_f1d4i"]
 [ext_resource type="PackedScene" uid="uid://b6b62m34ca1n2" path="res://scenes/items/earpod_R.tscn" id="11_l6k6l"]
+[ext_resource type="PackedScene" uid="uid://buwwobi2ahi0j" path="res://scenes/items/paperclip.tscn" id="12_1r06j"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_ikk2s")
-prompt = "Where's my gold key?
+prompt = "Where's my gold key? 
+
 "
 win_objects = Array[String](["gold"])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
@@ -76,3 +78,6 @@ rotation = -1.51111
 
 [node name="earpod_L" parent="." instance=ExtResource("11_l6k6l")]
 position = Vector2(-29, 47)
+
+[node name="paperclip" parent="." instance=ExtResource("12_1r06j")]
+position = Vector2(-83, 64)

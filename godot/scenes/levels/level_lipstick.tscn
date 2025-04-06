@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhuhebop8nnt8"]
+[gd_scene load_steps=16 format=3 uid="uid://dhuhebop8nnt8"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_awvuk"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_5mdix"]
@@ -9,7 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ou6kmawtmyrp" path="res://scenes/items/earpod_L.tscn" id="9_nt3t4"]
 [ext_resource type="PackedScene" uid="uid://b6b62m34ca1n2" path="res://scenes/items/earpod_R.tscn" id="10_qmf80"]
 [ext_resource type="PackedScene" uid="uid://dkild3ib6qlj0" path="res://scenes/items/keys.tscn" id="12_0rp8t"]
+[ext_resource type="PackedScene" uid="uid://4jranlqcxcyr" path="res://scenes/items/peanut01.tscn" id="12_vv274"]
+[ext_resource type="PackedScene" uid="uid://bv40tqob32aph" path="res://scenes/items/peanut02.tscn" id="13_5rwm6"]
 [ext_resource type="PackedScene" uid="uid://b002dpewk2xvn" path="res://scenes/items/hair03.tscn" id="13_w8bgh"]
+[ext_resource type="PackedScene" uid="uid://buwwobi2ahi0j" path="res://scenes/items/paperclip.tscn" id="14_5rwm6"]
 [ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="14_xo6va"]
 
 [sub_resource type="Resource" id="Resource_eap3p"]
@@ -78,3 +81,12 @@ rotation = -2.00549
 [node name="Keys" parent="." instance=ExtResource("12_0rp8t")]
 position = Vector2(-8, 68)
 rotation = 1.5862
+
+[node name="peanut01" parent="." instance=ExtResource("12_vv274")]
+position = Vector2(73, 126)
+
+[node name="peanut02" parent="." instance=ExtResource("13_5rwm6")]
+position = Vector2(-73, 45)
+
+[node name="paperclip" parent="." instance=ExtResource("14_5rwm6")]
+position = Vector2(69, 79)

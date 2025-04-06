@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl8f35vxgoolt"]
+[gd_scene load_steps=13 format=3 uid="uid://dl8f35vxgoolt"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_8upog"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_pbosj"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b640akyp7j6eo" path="res://scenes/items/jellybean_orange.tscn" id="7_qnjlj"]
 [ext_resource type="PackedScene" uid="uid://dwf8t7g8qdjqx" path="res://scenes/items/jellybean_raspberry.tscn" id="8_5clcm"]
 [ext_resource type="PackedScene" uid="uid://calyc143ri77r" path="res://scenes/items/jellybean_sherry.tscn" id="9_2l4or"]
+[ext_resource type="PackedScene" uid="uid://c37l8avt82kr8" path="res://scenes/items/hair07.tscn" id="10_6rc8p"]
+[ext_resource type="PackedScene" uid="uid://briqchntorj1p" path="res://scenes/items/hair05.tscn" id="11_lkt64"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_pbosj")
@@ -74,7 +76,6 @@ position = Vector2(2, 207)
 [node name="Jellybean_banana3" parent="." instance=ExtResource("4_lkt64")]
 position = Vector2(55, 149)
 rotation = 2.35954
-scale = Vector2(1, 1)
 
 [node name="Jellybean_lime2" parent="." instance=ExtResource("6_qgffv")]
 position = Vector2(-44, 138)
@@ -119,7 +120,6 @@ rotation = -1.5734
 [node name="Jellybean_orange4" parent="." instance=ExtResource("7_qnjlj")]
 position = Vector2(-85, 83)
 rotation = -3.08861
-scale = Vector2(1, 1)
 
 [node name="Jellybean_raspberry5" parent="." instance=ExtResource("8_5clcm")]
 position = Vector2(53, 50)
@@ -144,7 +144,6 @@ rotation = -0.357266
 [node name="Jellybean_lime5" parent="." instance=ExtResource("6_qgffv")]
 position = Vector2(-27, 39)
 rotation = 3.01411
-scale = Vector2(1, 1)
 
 [node name="Jellybean_raspberry6" parent="." instance=ExtResource("8_5clcm")]
 position = Vector2(-4, 22)
@@ -160,7 +159,6 @@ rotation = -0.357266
 [node name="Jellybean_lime7" parent="." instance=ExtResource("6_qgffv")]
 position = Vector2(-50, -43)
 rotation = 3.01411
-scale = Vector2(1, 1)
 
 [node name="Jellybean_raspberry7" parent="." instance=ExtResource("8_5clcm")]
 position = Vector2(17, -25)
@@ -217,3 +215,13 @@ position = Vector2(50, -34)
 
 [node name="Jellybean_sherry7" parent="." instance=ExtResource("9_2l4or")]
 position = Vector2(50, -114)
+
+[node name="hair07" parent="." instance=ExtResource("10_6rc8p")]
+position = Vector2(-28, -44)
+
+[node name="hair08" parent="." instance=ExtResource("10_6rc8p")]
+position = Vector2(34, 79)
+rotation = -1.09532
+
+[node name="hair05" parent="." instance=ExtResource("11_lkt64")]
+position = Vector2(26, 125)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b10eeldf30o3"]
+[gd_scene load_steps=4 format=3 uid="uid://buwwobi2ahi0j"]
 
 [ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_whad1"]
 [ext_resource type="Texture2D" uid="uid://cddbj480sikvx" path="res://assets/sprites/items/paperclip.png" id="2_whad1"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://uyb6c1fgja38"]
+[gd_scene load_steps=13 format=3 uid="uid://uyb6c1fgja38"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_qmbkv"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_chrt7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ou6kmawtmyrp" path="res://scenes/items/earpod_L.tscn" id="9_1vkra"]
 [ext_resource type="PackedScene" uid="uid://t3dhgf7l18fd" path="res://scenes/items/ballpen_empty.tscn" id="10_4evbh"]
 [ext_resource type="PackedScene" uid="uid://b6b62m34ca1n2" path="res://scenes/items/earpod_R.tscn" id="10_qhce4"]
+[ext_resource type="PackedScene" uid="uid://4jranlqcxcyr" path="res://scenes/items/peanut01.tscn" id="11_yh8rx"]
 [ext_resource type="PackedScene" uid="uid://btni5pqrpvn2p" path="res://scenes/items/key01.tscn" id="15_jwddo"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
@@ -76,3 +77,6 @@ rotation = -2.46511
 [node name="ballpen_empty2" parent="." instance=ExtResource("10_4evbh")]
 position = Vector2(-15, -13)
 rotation = 1.11178
+
+[node name="peanut01" parent="." instance=ExtResource("11_yh8rx")]
+position = Vector2(25, 201)

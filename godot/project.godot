@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LD57"
+config/name="LD57 - Handbag Havoc"
 run/main_scene="uid://cvjj7artcvxcb"
 config/features=PackedStringArray("4.4")
 boot_splash/show_image=false
