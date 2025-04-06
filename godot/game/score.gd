@@ -112,4 +112,5 @@ func score_level_done():
 	game_drops += level_drops
 
 func _physics_process(delta: float) -> void:
-	level_time += delta
+	if not get_tree().paused:
+		level_time += delta
