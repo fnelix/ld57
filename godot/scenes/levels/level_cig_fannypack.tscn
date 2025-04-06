@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cysjodno83a7t"]
+[gd_scene load_steps=23 format=3 uid="uid://cysjodno83a7t"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_cgugp"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_xu1k6"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://qhfyoxkd561x" path="res://scenes/items/lighter.tscn" id="17_kg47g"]
 [ext_resource type="PackedScene" uid="uid://c37l8avt82kr8" path="res://scenes/items/hair07.tscn" id="18_1xhnc"]
 [ext_resource type="PackedScene" uid="uid://4jranlqcxcyr" path="res://scenes/items/peanut01.tscn" id="19_4thmy"]
+[ext_resource type="PackedScene" uid="uid://kcw5lmnphqnd" path="res://scenes/items/pill01.tscn" id="20_1xhnc"]
+[ext_resource type="Texture2D" uid="uid://ccdx7u66dxjv8" path="res://assets/sprites/items/pill03.png" id="21_4thmy"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_xu1k6")
@@ -100,3 +102,11 @@ position = Vector2(-53, 108)
 
 [node name="peanut01" parent="." instance=ExtResource("19_4thmy")]
 position = Vector2(24, 79)
+
+[node name="pill01" parent="." instance=ExtResource("20_1xhnc")]
+position = Vector2(-20, 45)
+
+[node name="Pill03" type="Sprite2D" parent="."]
+position = Vector2(26, 8)
+rotation = 0.338917
+texture = ExtResource("21_4thmy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://btmyudi8a8bls"]
+[gd_scene load_steps=22 format=3 uid="uid://btmyudi8a8bls"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_2g174"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_f35t8"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://c21830akv3dbj" path="res://scenes/items/lipstick.tscn" id="11_i6253"]
 [ext_resource type="PackedScene" uid="uid://bxcqhkqhwyogs" path="res://scenes/items/match.tscn" id="13_2g174"]
 [ext_resource type="PackedScene" uid="uid://buwwobi2ahi0j" path="res://scenes/items/paperclip.tscn" id="13_lh3un"]
+[ext_resource type="PackedScene" uid="uid://dlbufpqgwp7wl" path="res://scenes/items/hair04.tscn" id="17_7qpwu"]
+[ext_resource type="PackedScene" uid="uid://ys2rljij52fy" path="res://scenes/items/hair08.tscn" id="18_gq561"]
+[ext_resource type="PackedScene" uid="uid://dkkjmykhhxhsf" path="res://scenes/items/screw_silver_minus01.tscn" id="19_7fdcq"]
+[ext_resource type="PackedScene" uid="uid://do7m1f5tc4ce7" path="res://scenes/items/screw_gold_plus02.tscn" id="20_3kybg"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_f35t8")
@@ -70,7 +74,7 @@ position = Vector2(39, 258)
 rotation = -1.64889
 
 [node name="wrench_12" parent="." instance=ExtResource("7_mrkwk")]
-position = Vector2(36, 147)
+position = Vector2(36, 148)
 rotation = 1.32861
 
 [node name="wrench_14" parent="." instance=ExtResource("8_p2j5x")]
@@ -85,10 +89,6 @@ rotation = -0.161064
 position = Vector2(43, -32)
 rotation = -0.642129
 
-[node name="wrench_13" parent="." instance=ExtResource("6_ibitj")]
-position = Vector2(-23, 31)
-rotation = 0.292509
-
 [node name="Lipstick" parent="." instance=ExtResource("11_i6253")]
 position = Vector2(38, 100)
 rotation = 1.4139
@@ -100,3 +100,16 @@ rotation = -1.86137
 [node name="Match" parent="." instance=ExtResource("13_2g174")]
 position = Vector2(109, -28)
 rotation = 0.0694536
+
+[node name="hair04" parent="." instance=ExtResource("17_7qpwu")]
+position = Vector2(-33, 66)
+
+[node name="hair08" parent="." instance=ExtResource("18_gq561")]
+position = Vector2(59, 224)
+
+[node name="screw_silver_minus01" parent="." instance=ExtResource("19_7fdcq")]
+position = Vector2(102, 214)
+
+[node name="screw_gold_plus02" parent="." instance=ExtResource("20_3kybg")]
+position = Vector2(-99, 83)
+rotation = -0.693612

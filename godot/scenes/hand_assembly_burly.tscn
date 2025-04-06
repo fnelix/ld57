@@ -12,7 +12,7 @@ radius = 90.0
 radius = 52.7731
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jh1ax"]
-radius = 96.2549
+radius = 75.0067
 
 [node name="HandAssembly" type="Node2D"]
 
@@ -51,7 +51,7 @@ scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-154, -618.34, 72, -626.34, 58, -224, 36, 177.66, 94, 273.66, 126, 411.66, 90, 425.66, 42, 385.66, -44, 372, -90, 409.66, -134, 413.66, -132, 313.66, -112, 257.66, -92, 177.66, -144, -186.34)
 
 [node name="Area2D_Grab" type="Area2D" parent="Hand"]
-position = Vector2(-4, 260.83)
+position = Vector2(1, 241.83)
 collision_layer = 2
 collision_mask = 2
 monitorable = false
@@ -66,7 +66,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Feel"]
-position = Vector2(2, 226.83)
+position = Vector2(6, 200.83)
+rotation = -0.0289363
 shape = SubResource("CircleShape2D_jh1ax")
 debug_color = Color(0.791469, 0.427967, 3.85046e-07, 0.42)
 

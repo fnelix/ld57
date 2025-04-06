@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3gy73xguk3b"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_7pjkv"]
+[ext_resource type="Texture2D" uid="uid://05cudqcuq2fv" path="res://assets/sprites/items/pill02.png" id="2_7pjkv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bu6lo"]
+radius = 8.0
+height = 34.0
+
+[node name="pill02" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_7pjkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7pjkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bu6lo")

@@ -25,7 +25,7 @@ script = ExtResource("2_c31yf")
 prompt = "Tip the delivery guy!
 There's a 2 EUR coin in there."
 win_objects = Array[String](["EUR"])
-hand_type = 0
+hand_type = 3
 sounds = Array[AudioStream]([ExtResource("3_rk6k6"), ExtResource("4_prdcw"), ExtResource("5_ur2dj"), ExtResource("6_h7mlg")])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
