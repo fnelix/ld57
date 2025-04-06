@@ -1,0 +1,93 @@
+[gd_scene load_steps=19 format=3 uid="uid://d3ognafn3eomm"]
+
+[ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_j87b2"]
+[ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_erxsu"]
+[ext_resource type="AudioStream" uid="uid://fafidntikj11" path="res://assets/sounds/crunch_plastic1.wav" id="3_0jrmi"]
+[ext_resource type="AudioStream" uid="uid://beeuhj7sdap45" path="res://assets/sounds/crunch_plastic2.wav" id="4_xv0bb"]
+[ext_resource type="AudioStream" uid="uid://cj0ovxhxhb1iu" path="res://assets/sounds/crunch_plastic3.wav" id="5_n5jvb"]
+[ext_resource type="AudioStream" uid="uid://ch8mi3v4jp47o" path="res://assets/sounds/crunch_plastic4.wav" id="6_kus0o"]
+[ext_resource type="Texture2D" uid="uid://dath7oxy6pbst" path="res://assets/sprites/backgrounds/bg_fannypack.png" id="7_0v6ig"]
+[ext_resource type="Texture2D" uid="uid://cfckdgiqum6g" path="res://assets/sprites/backgrounds/bg_fannypack_front.png" id="8_ov145"]
+[ext_resource type="PackedScene" uid="uid://cih3tou1qx61c" path="res://scenes/items/jellybean_lime.tscn" id="9_bd8sq"]
+[ext_resource type="PackedScene" uid="uid://dbly56mbol0h6" path="res://scenes/items/hair09.tscn" id="10_u8thf"]
+[ext_resource type="PackedScene" uid="uid://b6b62m34ca1n2" path="res://scenes/items/earpod_R.tscn" id="12_4scfo"]
+[ext_resource type="PackedScene" uid="uid://co74sqn4ogf2v" path="res://scenes/items/walnut.tscn" id="13_6jk5i"]
+[ext_resource type="PackedScene" uid="uid://dlbufpqgwp7wl" path="res://scenes/items/hair04.tscn" id="15_0mf7n"]
+[ext_resource type="PackedScene" uid="uid://p0jcd4oxgnai" path="res://scenes/items/ticket.tscn" id="15_bd8sq"]
+[ext_resource type="PackedScene" uid="uid://btiens71lly7y" path="res://scenes/items/ballpen_full.tscn" id="15_og3vg"]
+[ext_resource type="PackedScene" uid="uid://byrqvm0e2e2e1" path="res://scenes/items/key03.tscn" id="17_4scfo"]
+[ext_resource type="PackedScene" uid="uid://qhfyoxkd561x" path="res://scenes/items/lighter.tscn" id="17_mrrkk"]
+
+[sub_resource type="Resource" id="Resource_ps2vj"]
+script = ExtResource("2_erxsu")
+prompt = "Oh no, last call!
+Where is my ticket?"
+win_objects = Array[String](["ticket"])
+hand_type = 1
+sounds = Array[AudioStream]([ExtResource("3_0jrmi"), ExtResource("4_xv0bb"), ExtResource("5_n5jvb"), ExtResource("6_kus0o")])
+metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_j87b2")
+levelinfo = SubResource("Resource_ps2vj")
+
+[node name="Limit_out" type="Line2D" parent="."]
+position = Vector2(-4, -91)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Limit_win" type="Line2D" parent="."]
+position = Vector2(0, -45)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(0, 0.780392, 0, 1)
+
+[node name="Bag" type="StaticBody2D" parent="."]
+collision_mask = 7
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
+polygon = PackedVector2Array(-113, 147, 0, 155, 98, 152, 120, 138, 121, -43, 135, -47, 140, 239, -131, 238, -139, -50, -119, -44)
+
+[node name="bag" type="Sprite2D" parent="Bag"]
+z_index = -8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_0v6ig")
+metadata/_edit_lock_ = true
+
+[node name="bag_fg" type="Sprite2D" parent="Bag"]
+z_index = 6
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ov145")
+metadata/_edit_lock_ = true
+
+[node name="Jellybean_lime" parent="." instance=ExtResource("9_bd8sq")]
+position = Vector2(82, 99)
+
+[node name="hair09" parent="." instance=ExtResource("10_u8thf")]
+position = Vector2(-69, 82)
+
+[node name="hair04" parent="." instance=ExtResource("15_0mf7n")]
+position = Vector2(102, 73)
+
+[node name="earpod_L" parent="." instance=ExtResource("12_4scfo")]
+position = Vector2(-44, 125)
+
+[node name="walnut" parent="." instance=ExtResource("13_6jk5i")]
+position = Vector2(-44, 48)
+
+[node name="ballpen_full" parent="." instance=ExtResource("15_og3vg")]
+position = Vector2(-89, 82)
+rotation = -0.112677
+
+[node name="ticket" parent="." instance=ExtResource("15_bd8sq")]
+position = Vector2(26, 107)
+
+[node name="lighter" parent="." instance=ExtResource("17_mrrkk")]
+position = Vector2(45, 24)
+rotation = 1.62355
+
+[node name="key03" parent="." instance=ExtResource("17_4scfo")]
+position = Vector2(-43, 4)
+rotation = 1.23409

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://p0jcd4oxgnai"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_21bqw"]
+[ext_resource type="Texture2D" uid="uid://n5fur2uj35ki" path="res://assets/sprites/items/ticket.png" id="2_21bqw"]
+
+[node name="ticket" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_21bqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_21bqw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-60, -105, -68, -102, -75, -91, -76, 88, -63.8, 104, 60.6, 104, 68, 98, 71.7, 86, 70, -90.4, 64, -102, 52, -104, 52, -105)

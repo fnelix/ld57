@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=27 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
@@ -22,13 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://stgb0k6eic7w" path="res://assets/sprites/layouts/button_playagain.png" id="16_ccljq"]
 [ext_resource type="AudioStream" uid="uid://dk4jhnoysmspi" path="res://assets/sounds/glock1.wav" id="18_ya6yc"]
 [ext_resource type="AudioStream" uid="uid://m05e02resuc3" path="res://assets/sounds/glock2.wav" id="19_mflgo"]
+[ext_resource type="AudioStream" uid="uid://chcalwuutgblr" path="res://assets/sounds/ugh3.wav" id="21_f3p2p"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_34frw"]
 streams_count = 4
 stream_0/stream = ExtResource("14_log26")
 stream_1/stream = ExtResource("15_gt4lb")
-stream_2/stream = ExtResource("15_gt4lb")
-stream_3/stream = ExtResource("15_gt4lb")
+stream_2/stream = ExtResource("21_f3p2p")
+stream_3/stream = ExtResource("21_f3p2p")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f3p2p"]
 
@@ -305,6 +306,7 @@ autoplay = true
 [node name="SFX" type="Node" parent="."]
 
 [node name="ugh" type="AudioStreamPlayer2D" parent="SFX"]
+position = Vector2(0, 1)
 stream = SubResource("AudioStreamRandomizer_34frw")
 volume_db = -1.0
 pitch_scale = 1.2

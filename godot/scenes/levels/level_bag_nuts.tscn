@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddibcdprb76ly"]
+[gd_scene load_steps=21 format=3 uid="uid://ddibcdprb76ly"]
 
 [ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_n14fo"]
 [ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_flrou"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="13_smk2s"]
 [ext_resource type="PackedScene" uid="uid://c37l8avt82kr8" path="res://scenes/items/hair07.tscn" id="14_q2uhj"]
 [ext_resource type="PackedScene" uid="uid://dbly56mbol0h6" path="res://scenes/items/hair09.tscn" id="15_xieu2"]
+[ext_resource type="PackedScene" uid="uid://b3gy73xguk3b" path="res://scenes/items/pill02.tscn" id="19_3pudp"]
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 script = ExtResource("2_flrou")
@@ -201,3 +202,6 @@ position = Vector2(6, -41)
 
 [node name="hair09" parent="." instance=ExtResource("15_xieu2")]
 position = Vector2(-9, 111)
+
+[node name="pill02" parent="." instance=ExtResource("19_3pudp")]
+position = Vector2(-64, 243)

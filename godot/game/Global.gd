@@ -33,18 +33,16 @@ var current_hand_type : HandType = HandType.DEFAULT
 var levels = [ 
 	preload("res://scenes/levels/level_lipstick.tscn"),			# Lippenstift auf Damenhandtasche
 	preload("res://scenes/levels/level_jeans_key.tscn"),			# Goldener Schlüssel aus Jeans
+	preload("res://scenes/levels/level_fannypack_ticket.tscn"),	# Ticket Bauchtasche
 	preload("res://scenes/levels/level_glass_misc.tscn"),			# Glass mit Zeug
-	preload("res://scenes/levels/level_cig_fannypack.tscn"),		# Zigarette aus Bauchtasche
 	preload("res://scenes/levels/level_backpack_pens.tscn"),		# Stift aus Rucksack
 	preload("res://scenes/levels/level_pills.tscn"),				# Pillen fürs Herz
 	preload("res://scenes/levels/level_bag_nuts.tscn"),			# Walnuss aus Papiertasche
 	preload("res://scenes/levels/level_glass_coin.tscn"),			# 2 EUR aus Glas
+	preload("res://scenes/levels/level_cig_fannypack.tscn"),		# Zigarette aus Bauchtasche
 	preload("res://scenes/levels/level_tools_wrench.tscn"),		# Maulschlüssel aus Toolbox
-	
-	
+	preload("res://scenes/levels/level_backpack_bandaid.tscn"), 	# Rucksack Pflaster
 	preload("res://scenes/levels/level_bag_screws.tscn"),			# Schrauben aus paper bag
-	
-	
 	preload("res://scenes/levels/level_jellybeans.tscn")			# Jellybeans aus Jeans
 	]
 func _ready() -> void:

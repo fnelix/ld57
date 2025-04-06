@@ -25,14 +25,14 @@ func _process(delta: float) -> void:
 	
 func show_level_win(value: bool):
 	%LevelWinPanel.visible = value
-	%LabelLevelText.text = "Time: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
+	%LabelLevelText.text = "Dropped Objects: %s\nTime Penalty: %s\nTime: %s"  % [ Global.score.level_drops, time2hhmmss(Global.score.level_drops*10), time2hhmmss(Global.score.level_time) ]
 	
 
 	
 func show_game_win(value: bool):
 
 	%GameWinPanel.visible = value
-	%LabelGameText.text = "Overall Score:\nTime: %s\nDropped Objects: %s"  % [ time2hhmmss(Global.score.game_time), Global.score.game_drops]
+	%LabelGameText.text = "Overall Score:\nDropped Objects: %s\nTime Penalty: %s\nTime: %s"  % [ Global.score.game_drops, time2hhmmss(Global.score.game_drops*10), time2hhmmss(Global.score.game_time)]
 
 func show_game_start(value: bool):
 	%GameStartPanel.visible = value
