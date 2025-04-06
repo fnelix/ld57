@@ -67,7 +67,12 @@ rotation = -1.30943
 position = Vector2(-67, 80)
 
 [node name="earpod_L2" parent="." instance=ExtResource("10_qhce4")]
-position = Vector2(86, 52)
+position = Vector2(81, -82)
 
 [node name="ballpen_empty" parent="." instance=ExtResource("10_4evbh")]
-position = Vector2(28, 31)
+position = Vector2(55, 35)
+rotation = -2.46511
+
+[node name="ballpen_empty2" parent="." instance=ExtResource("10_4evbh")]
+position = Vector2(-15, -13)
+rotation = 1.11178
