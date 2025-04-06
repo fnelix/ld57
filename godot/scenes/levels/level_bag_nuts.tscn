@@ -1,0 +1,175 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddibcdprb76ly"]
+
+[ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_n14fo"]
+[ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_flrou"]
+[ext_resource type="Texture2D" uid="uid://0aau4g4cxnan" path="res://assets/sprites/backgrounds/bg_paperbag.png" id="3_w1pdj"]
+[ext_resource type="Texture2D" uid="uid://dk7k7tvx7o2hm" path="res://assets/sprites/backgrounds/bg_paperbag_front.png" id="4_56bji"]
+[ext_resource type="PackedScene" uid="uid://4jranlqcxcyr" path="res://scenes/items/peanut01.tscn" id="5_h2kd8"]
+[ext_resource type="PackedScene" uid="uid://bv40tqob32aph" path="res://scenes/items/peanut02.tscn" id="6_smk2s"]
+[ext_resource type="PackedScene" uid="uid://bgi5f6lakj1u6" path="res://scenes/items/peanut03.tscn" id="7_s8ogb"]
+[ext_resource type="PackedScene" uid="uid://co74sqn4ogf2v" path="res://scenes/items/walnut.tscn" id="8_q2uhj"]
+[ext_resource type="PackedScene" uid="uid://c8pxutwg1laef" path="res://scenes/items/cashew01.tscn" id="9_xieu2"]
+[ext_resource type="PackedScene" uid="uid://ckwaqpifht82r" path="res://scenes/items/cashew02.tscn" id="10_ttsq7"]
+[ext_resource type="PackedScene" uid="uid://c6lkwaydtgvgp" path="res://scenes/items/cashew03.tscn" id="11_w7ivp"]
+[ext_resource type="PackedScene" uid="uid://b0jaa5vcg1oeg" path="res://scenes/items/hair01.tscn" id="12_3pudp"]
+[ext_resource type="PackedScene" uid="uid://chfoi7ghsxbss" path="res://scenes/items/hair02.tscn" id="13_smk2s"]
+
+[sub_resource type="Resource" id="Resource_ps2vj"]
+script = ExtResource("2_flrou")
+prompt = "This is nuts!
+I just want a walnut."
+win_objects = Array[String](["walnut"])
+metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_n14fo")
+levelinfo = SubResource("Resource_ps2vj")
+
+[node name="Limit_out" type="Line2D" parent="."]
+position = Vector2(4, -234)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Limit_win" type="Line2D" parent="."]
+position = Vector2(-4, -129)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(0, 0.780392, 0, 1)
+
+[node name="Bag" type="StaticBody2D" parent="."]
+collision_mask = 7
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
+polygon = PackedVector2Array(-122, -113, -126, 274, 121, 271, 123, -108, 117, -142, 146, -151, 146, 291, -143, 298, -143, -113)
+
+[node name="bag" type="Sprite2D" parent="Bag"]
+z_index = -8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_w1pdj")
+metadata/_edit_lock_ = true
+
+[node name="bag_fg" type="Sprite2D" parent="Bag"]
+visible = false
+z_index = 6
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_56bji")
+metadata/_edit_lock_ = true
+
+[node name="peanut01" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(88, 225)
+rotation = -2.85841
+
+[node name="peanut02" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(-91, 225)
+
+[node name="peanut03" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-24, 249)
+
+[node name="peanut04" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(21, 224)
+rotation = -1.8421
+
+[node name="peanut05" parent="." instance=ExtResource("7_s8ogb")]
+position = Vector2(58, 170)
+
+[node name="peanut06" parent="." instance=ExtResource("7_s8ogb")]
+position = Vector2(51, 209)
+rotation = 1.77992
+
+[node name="walnut" parent="." instance=ExtResource("8_q2uhj")]
+position = Vector2(-34, 208)
+
+[node name="peanut07" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-65, 166)
+
+[node name="peanut08" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-28, 156)
+rotation = 2.15725
+
+[node name="cashew01" parent="." instance=ExtResource("9_xieu2")]
+position = Vector2(16, 188)
+
+[node name="cashew02" parent="." instance=ExtResource("10_ttsq7")]
+position = Vector2(-90, 130)
+rotation = 1.93115
+
+[node name="cashew03" parent="." instance=ExtResource("10_ttsq7")]
+position = Vector2(88, 188)
+
+[node name="cashew04" parent="." instance=ExtResource("11_w7ivp")]
+position = Vector2(35, 130)
+rotation = -2.45226
+
+[node name="cashew05" parent="." instance=ExtResource("10_ttsq7")]
+position = Vector2(-35, 117)
+
+[node name="Hair01" parent="." instance=ExtResource("12_3pudp")]
+position = Vector2(99, 134)
+
+[node name="peanut09" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(70, 96)
+
+[node name="peanut10" parent="." instance=ExtResource("7_s8ogb")]
+position = Vector2(-72, 84)
+
+[node name="peanut11" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(4, 83)
+rotation = -1.59537
+
+[node name="peanut12" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-3, 147)
+
+[node name="cashew06" parent="." instance=ExtResource("11_w7ivp")]
+position = Vector2(75, 56)
+rotation = -2.97497
+
+[node name="cashew07" parent="." instance=ExtResource("10_ttsq7")]
+position = Vector2(-13, 45)
+rotation = -2.75608
+
+[node name="cashew08" parent="." instance=ExtResource("9_xieu2")]
+position = Vector2(49, -2)
+rotation = 1.96933
+
+[node name="cashew09" parent="." instance=ExtResource("11_w7ivp")]
+position = Vector2(-90, 52)
+
+[node name="peanut13" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-99, 175)
+
+[node name="peanut14" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(37, 83)
+
+[node name="peanut15" parent="." instance=ExtResource("7_s8ogb")]
+position = Vector2(-17, -33)
+rotation = -1.35272
+
+[node name="peanut16" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(88, -26)
+rotation = -1.15457
+
+[node name="peanut17" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(-35, 75)
+rotation = -1.65865
+
+[node name="peanut18" parent="." instance=ExtResource("5_h2kd8")]
+position = Vector2(6, -72)
+
+[node name="peanut19" parent="." instance=ExtResource("6_smk2s")]
+position = Vector2(-79, 10)
+
+[node name="cashew10" parent="." instance=ExtResource("10_ttsq7")]
+position = Vector2(25, 35)
+
+[node name="cashew11" parent="." instance=ExtResource("9_xieu2")]
+position = Vector2(-80, -52)
+
+[node name="cashew12" parent="." instance=ExtResource("11_w7ivp")]
+position = Vector2(52, -55)
+rotation = -1.22789
+
+[node name="Hair02" parent="." instance=ExtResource("13_smk2s")]
+position = Vector2(-47, 28)
+rotation = 0.553197
