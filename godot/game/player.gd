@@ -5,6 +5,9 @@ var mouse_on_player: bool = false
 var mouse_drag: bool = false
 var mouse_drag_start: Vector2 
 
+
+var hand_resetting:bool
+
 var hand_hold:bool
 
 var position_drag_start: Vector2
@@ -52,6 +55,8 @@ func reset():
 		mouse_drag = false
 		hand_hold = false
 		
+		hand_resetting = false
+		
 		self.global_position = Vector2(-14,-461)
 		hand.global_position = Vector2(-14,-461)
 	
@@ -73,7 +78,44 @@ func _add_joint(body, pos):
 	
 	hold_joints.append(new_joint)	
 	
+func hand_reset_start():
+	hand_resetting = true
+	hand.collision_layer = 4 # hand layer
+	
+	mouse_drag = false
+	hand_hold = false
+	
+	for joint in hold_joints:
+		joint.queue_free()
+	hold_joints.clear()
+		
+	for body in hold_bodies:
+		body.carry_end()
+			
+	hold_bodies.clear()
+
+	
+func hand_reset_end():
+	hand_resetting = false
+	hand.collision_layer = 0
+	
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("f"):
+		if not hand_resetting:
+			hand_reset_start()
+	
+	if hand_resetting:
+		
+		var target = Vector2(-13,-456.83)
+		
+		hand.global_position = lerp(hand.global_position, target, delta*20.0)
+		
+		if (hand.global_position-target).length() < 1.0:
+			hand_reset_end()
+		
+		return
+	
 	if mouse_drag:
 		# brute force: just move hand there
 		self.global_position = position_drag_start + (mouse_position - mouse_drag_start)

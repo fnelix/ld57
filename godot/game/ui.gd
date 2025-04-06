@@ -9,24 +9,34 @@ func time2hhmmss(s: float) -> String:
 	return str
 
 func set_prompt_text(text):
-	$MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text = text
+	%LabelPrompt.text = text
 
 func mod_prompt_text(name):
-	var text : String = $MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text 
+	var text : String = %LabelPrompt.text 
 	
 	text = text.replacen(name, "[s]"+name+"[/s]")
 	
-	$MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LabelText.text = text
+	%LabelPrompt.text = text
 	
 
 func _process(delta: float) -> void:
-	$MarginContainer/VBoxContainer/Label.text = "%s " % [ time2hhmmss(Global.score.level_time)]
+	%LabelTime.text = "%s " % [ time2hhmmss(Global.score.level_time)]
 
 	
 func show_level_win(value: bool):
-	$MarginContainer/LevelWinPanel.visible = value
-	$MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/LabelText.text = "Good!"+"\n%s\n%s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
+	%LevelWinPanel.visible = value
+	%LevelWinPanel/PanelContainer/VBoxContainer/LabelText.text = "Good!"+"\n%s\n%s"  % [ time2hhmmss(Global.score.level_time), Global.score.level_drops]
 
 
 func _on_button_continue_pressed() -> void:
 	Global.flag_continue = true
+
+
+func _on_button_reset_pressed() -> void:
+	Input.action_press("r")
+	Input.action_release("r")
+
+
+func _on_button_hand_free_pressed() -> void:
+	Input.action_press("f")
+	Input.action_release("f")

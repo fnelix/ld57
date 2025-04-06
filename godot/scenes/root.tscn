@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvjj7artcvxcb"]
+[gd_scene load_steps=16 format=3 uid="uid://cvjj7artcvxcb"]
 
 [ext_resource type="Script" uid="uid://bdd162kaxybnq" path="res://game/root.gd" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://qdyb2o6ccikh" path="res://game/score.gd" id="2_kycxp"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="5_kycxp"]
 [ext_resource type="Script" uid="uid://8jnjvhnspu4e" path="res://game/ui.gd" id="7_5sfjl"]
 [ext_resource type="FontFile" uid="uid://blti7cl6jhtgx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="7_j287u"]
+[ext_resource type="Texture2D" uid="uid://y1i0ckf8g762" path="res://assets/sprites/layouts/button_hand_free.png" id="7_xsp7o"]
 [ext_resource type="Texture2D" uid="uid://cuv73ahlrgyrm" path="res://assets/sprites/layouts/speechbubble.png" id="8_3hfy5"]
+[ext_resource type="Texture2D" uid="uid://c5be27xlio7of" path="res://assets/sprites/layouts/button_reset.png" id="8_l5cgh"]
 [ext_resource type="StyleBox" path="res://assets/styleboxflat_empty.tres" id="9_7pvxh"]
 [ext_resource type="StyleBox" uid="uid://cfbki43yl7c56" path="res://assets/stylebox1.tres" id="10_7pvxh"]
 
@@ -109,31 +111,48 @@ size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+alignment = 2
+
+[node name="ButtonHandFree" type="TextureButton" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_xsp7o")
+
+[node name="ButtonReset" type="TextureButton" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_l5cgh")
+
+[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+visible = false
+layout_mode = 2
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 
-[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("8_3hfy5")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LabelText_alt" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="LabelText_alt" type="Label" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
 visible = false
 z_index = 8
 layout_mode = 2
@@ -143,7 +162,8 @@ theme_override_font_sizes/font_size = 32
 text = "The baby is crying.
 Quick, where is the pacifier!"
 
-[node name="LabelText" type="RichTextLabel" parent="UI/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="LabelPrompt" type="RichTextLabel" parent="UI/MarginContainer/MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
 z_index = 8
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -155,12 +175,13 @@ Quick, where is the pacifier!"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="HSeparator2" type="HSeparator" parent="UI/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+[node name="LabelTime" type="Label" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 z_index = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -169,12 +190,13 @@ theme_override_font_sizes/font_size = 32
 text = "Timer!"
 horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="UI/MarginContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="UI/MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = ExtResource("9_7pvxh")
 
 [node name="LevelWinPanel" type="CenterContainer" parent="UI/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/LevelWinPanel"]
@@ -210,4 +232,6 @@ flat = true
 [connection signal="body_exited" from="HandAssembly/Hand/Area2D_Grab" to="HandAssembly/Player" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_entered"]
 [connection signal="body_exited" from="HandAssembly/Hand/Area2D_Feel" to="HandAssembly/Player" method="_on_area_2d_feel_body_exited"]
+[connection signal="pressed" from="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ButtonHandFree" to="UI" method="_on_button_hand_free_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ButtonReset" to="UI" method="_on_button_reset_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/LevelWinPanel/PanelContainer/VBoxContainer/ButtonContinue" to="UI" method="_on_button_continue_pressed"]
