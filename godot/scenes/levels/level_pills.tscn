@@ -1,0 +1,90 @@
+[gd_scene load_steps=18 format=3 uid="uid://bswotht5c6vde"]
+
+[ext_resource type="Script" uid="uid://bfrqh50aev3bu" path="res://game/level.gd" id="1_lgndh"]
+[ext_resource type="Script" uid="uid://dpl4yn18xr0b3" path="res://ResourceLevelInfo.gd" id="2_w7ju7"]
+[ext_resource type="AudioStream" uid="uid://fafidntikj11" path="res://assets/sounds/crunch_plastic1.wav" id="3_ex8vc"]
+[ext_resource type="AudioStream" uid="uid://beeuhj7sdap45" path="res://assets/sounds/crunch_plastic2.wav" id="4_fru2n"]
+[ext_resource type="AudioStream" uid="uid://cj0ovxhxhb1iu" path="res://assets/sounds/crunch_plastic3.wav" id="5_3wtc3"]
+[ext_resource type="AudioStream" uid="uid://ch8mi3v4jp47o" path="res://assets/sounds/crunch_plastic4.wav" id="6_jt16m"]
+[ext_resource type="Texture2D" uid="uid://chmf87ycq3106" path="res://assets/sprites/backgrounds/bg_lady_bag.png" id="7_gafvb"]
+[ext_resource type="Texture2D" uid="uid://cklg0un73p4je" path="res://assets/sprites/backgrounds/bg_lady_bag_front.png" id="8_uig4h"]
+[ext_resource type="PackedScene" path="res://scenes/items/coin_5.tscn" id="10_2hw0j"]
+[ext_resource type="PackedScene" uid="uid://chyh670n5a0yx" path="res://scenes/items/coin_1.tscn" id="11_awicx"]
+[ext_resource type="PackedScene" uid="uid://c0xawnpavx2d3" path="res://scenes/items/pills.tscn" id="12_lgndh"]
+[ext_resource type="PackedScene" uid="uid://bpb8j7qnesxvb" path="res://scenes/items/lipstick_open.tscn" id="13_w7ju7"]
+[ext_resource type="PackedScene" uid="uid://dctcvjyokuwb0" path="res://scenes/items/lipstick_cap.tscn" id="14_ex8vc"]
+[ext_resource type="PackedScene" uid="uid://jo70xi518d3i" path="res://scenes/items/cigarette_broken.tscn" id="15_fru2n"]
+[ext_resource type="PackedScene" uid="uid://bxcqhkqhwyogs" path="res://scenes/items/match.tscn" id="16_3wtc3"]
+[ext_resource type="PackedScene" uid="uid://buwwobi2ahi0j" path="res://scenes/items/paperclip.tscn" id="18_8f1gr"]
+
+[sub_resource type="Resource" id="Resource_eap3p"]
+script = ExtResource("2_w7ju7")
+prompt = "Ahh my heart!
+I need my pills, now!"
+win_objects = Array[String](["pills"])
+hand_type = 2
+sounds = Array[AudioStream]([ExtResource("3_ex8vc"), ExtResource("4_fru2n"), ExtResource("5_3wtc3"), ExtResource("6_jt16m")])
+metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_lgndh")
+levelinfo = SubResource("Resource_eap3p")
+
+[node name="Limit_out" type="Line2D" parent="."]
+position = Vector2(-7, -159)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Limit_win" type="Line2D" parent="."]
+position = Vector2(-11, -107)
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(0, 0.780392, 0, 1)
+
+[node name="Bag" type="StaticBody2D" parent="."]
+collision_mask = 7
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bag"]
+polygon = PackedVector2Array(-107, -104, -116, 46, -120, 195, -116, 205, -94, 212, -22, 219, 13, 221, 58, 221, 101, 216, 118, 198, 118, 134, 98, 24, 91, -90, 88, -117, 98, -120, 107, -108, 124, 26, 144, 174, 143, 200, 123, 235, 90, 241, 10, 242, -72, 241, -139, 229, -136, 163, -133, 41, -116, -105)
+
+[node name="Bag_BG" type="Sprite2D" parent="Bag"]
+z_index = -8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_gafvb")
+metadata/_edit_lock_ = true
+
+[node name="Bag_FG" type="Sprite2D" parent="Bag"]
+z_index = 6
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_uig4h")
+metadata/_edit_lock_ = true
+
+[node name="paperclip" parent="." instance=ExtResource("18_8f1gr")]
+position = Vector2(-101, 177)
+
+[node name="coin_5" parent="." instance=ExtResource("10_2hw0j")]
+position = Vector2(-59, 187)
+
+[node name="coin_1" parent="." instance=ExtResource("11_awicx")]
+position = Vector2(50, 39)
+
+[node name="pills" parent="." instance=ExtResource("12_lgndh")]
+position = Vector2(37, 157)
+rotation = -1.05833
+
+[node name="Lipstick_open" parent="." instance=ExtResource("13_w7ju7")]
+position = Vector2(-50, 86)
+rotation = 0.456123
+
+[node name="Lipstick_cap" parent="." instance=ExtResource("14_ex8vc")]
+position = Vector2(4.99999, 4)
+rotation = 1.23781
+
+[node name="Cigarette_broken" parent="." instance=ExtResource("15_fru2n")]
+position = Vector2(-60, -2)
+
+[node name="Match" parent="." instance=ExtResource("16_3wtc3")]
+position = Vector2(28, 71)
+rotation = -0.629604

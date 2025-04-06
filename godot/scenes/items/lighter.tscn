@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://qhfyoxkd561x"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_wobtr"]
+[ext_resource type="Texture2D" uid="uid://763nvc5ipkx7" path="res://assets/sprites/items/lighter.png" id="2_wobtr"]
+
+[node name="lighter" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_wobtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wobtr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-5.5, -96.8, -21.7, -95, -29.3, -92, -32.2, -86, -34, 88, -24, 94, -12, 96, 2, 96, 18, 94, 32.5, 89, 34.5, -61, 34.5, -64.8, 36.7, -70, 32, -80, 15.7, -80, 10.5, -90.5, 5.5, -96.1)

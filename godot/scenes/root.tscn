@@ -83,6 +83,7 @@ theme_override_constants/margin_right = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/GameUI"]
 layout_mode = 2
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 layout_mode = 2
@@ -148,13 +149,15 @@ theme_override_styles/separator = ExtResource("9_7pvxh")
 
 [node name="LabelTime" type="Label" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
 z_index = 8
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_j287u")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Timer!"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HSeparator3" type="HSeparator" parent="UI/MarginContainer/GameUI/VBoxContainer"]
 layout_mode = 2
@@ -304,7 +307,8 @@ autoplay = true
 [node name="ugh" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_34frw")
 volume_db = -1.0
-pitch_scale = 0.9
+pitch_scale = 1.2
+max_polyphony = 2
 
 [node name="level" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_f3p2p")

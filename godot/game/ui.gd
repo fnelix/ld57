@@ -42,6 +42,17 @@ func show_instructions(value: bool):
 	
 func show_game_ui(value:bool):
 	%GameUI.visible = value
+	
+	
+func flash_timer():
+	print("Blitz")
+	var tween = get_tree().create_tween() 
+	tween.parallel().tween_property(%LabelTime, "scale", Vector2(1,1.1), 0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property(%LabelTime, "modulate", Color.RED, 0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	
+	tween.tween_property(%LabelTime, "scale", Vector2(1,1), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(%LabelTime, "modulate", Color.BLACK, 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	
 
 func _on_button_continue_pressed() -> void:
 	Global.flag_continue = true

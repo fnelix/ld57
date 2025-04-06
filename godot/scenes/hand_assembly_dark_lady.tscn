@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbirer70dd1jv"]
+
+[ext_resource type="Script" uid="uid://dnfwi8l0y3whx" path="res://game/player.gd" id="1_sqvui"]
+[ext_resource type="Texture2D" uid="uid://dg4mwhso4g1g5" path="res://assets/sprites/hand/hand04_open.png" id="2_sqvui"]
+[ext_resource type="Texture2D" uid="uid://3p1rop4fcyuy" path="res://assets/sprites/hand/hand04_closed.png" id="3_h8ovd"]
+[ext_resource type="Script" uid="uid://dcouwe0tbtfvj" path="res://game/hand.gd" id="4_njdx0"]
+[ext_resource type="Texture2D" uid="uid://bry64lo64p6e6" path="res://assets/sprites/hand/hand_open.png" id="5_mp6fn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kycxp"]
+radius = 90.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j287u"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jh1ax"]
+radius = 58.1378
+
+[node name="HandAssembly" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+process_mode = 1
+position = Vector2(-14, -461)
+collision_layer = 512
+collision_mask = 512
+input_pickable = true
+script = ExtResource("1_sqvui")
+openTexture = ExtResource("2_sqvui")
+closedTexture = ExtResource("3_h8ovd")
+
+[node name="CollisionShape2D_Drag" type="CollisionShape2D" parent="Player"]
+position = Vector2(14, 194)
+shape = SubResource("CircleShape2D_kycxp")
+
+[node name="Hand" type="RigidBody2D" parent="."]
+process_mode = 1
+position = Vector2(-13, -456.83)
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 10.0
+angular_damp = 1.0
+script = ExtResource("4_njdx0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+z_index = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_mp6fn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand"]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-102, -618, 58, -630, 58, -224, 36, 177.66, 94, 272, 104, 435.66, 80, 436, 50, 365.66, -44, 372, -50, 417.66, -82, 425.66, -88, 298, -86, 245.66, -64, 170, -88, -196.34)
+
+[node name="Area2D_Grab" type="Area2D" parent="Hand"]
+position = Vector2(-4, 260.83)
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Grab"]
+position = Vector2(4, -22)
+shape = SubResource("CircleShape2D_j287u")
+debug_color = Color(0.970241, 0, 0.456039, 0.42)
+
+[node name="Area2D_Feel" type="Area2D" parent="Hand"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D_Feel"]
+position = Vector2(17, 211.83)
+shape = SubResource("CircleShape2D_jh1ax")
+debug_color = Color(0.791469, 0.427967, 3.85046e-07, 0.42)
+
+[connection signal="mouse_entered" from="Player" to="Player" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Player" to="Player" method="_on_mouse_exited"]
+[connection signal="body_entered" from="Hand/Area2D_Grab" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Hand/Area2D_Grab" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Hand/Area2D_Feel" to="Player" method="_on_area_2d_feel_body_entered"]
+[connection signal="body_exited" from="Hand/Area2D_Feel" to="Player" method="_on_area_2d_feel_body_exited"]

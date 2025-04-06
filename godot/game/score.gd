@@ -101,6 +101,11 @@ func count_drop():
 	level_drops += 1
 	
 	Global.sfx.get_node("ugh").play()
+	
+	## time penalty
+	level_time += 10
+	
+	Global.ui.flash_timer()
 
 func score_level_done():
 	game_time += level_time
