@@ -32,7 +32,7 @@ script = ExtResource("1_awvuk")
 levelinfo = SubResource("Resource_eap3p")
 
 [node name="Limit_out" type="Line2D" parent="."]
-position = Vector2(-9, -194)
+position = Vector2(-7, -159)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 1)

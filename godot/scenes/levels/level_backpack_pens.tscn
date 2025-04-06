@@ -29,7 +29,7 @@ script = ExtResource("1_qmbkv")
 levelinfo = SubResource("Resource_ps2vj")
 
 [node name="Limit_out" type="Line2D" parent="."]
-position = Vector2(13, -213)
+position = Vector2(9, -197)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 1)

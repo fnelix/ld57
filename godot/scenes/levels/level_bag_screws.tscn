@@ -22,17 +22,16 @@
 script = ExtResource("2_2ppjx")
 prompt = "Give me the small copper and brass flathead screws, yeah?"
 win_objects = Array[String](["copper", "brass"])
-hand_type = 0
+hand_type = 4
 sounds = Array[AudioStream]([ExtResource("3_2vocg"), ExtResource("4_8q5ub"), ExtResource("5_2ppjx")])
 metadata/_custom_type_script = "uid://dpl4yn18xr0b3"
 
 [node name="Level" type="Node2D"]
-position = Vector2(1, 0)
 script = ExtResource("1_8q5ub")
 levelinfo = SubResource("Resource_ps2vj")
 
 [node name="Limit_out" type="Line2D" parent="."]
-position = Vector2(4, -234)
+position = Vector2(2, -211)
 points = PackedVector2Array(-100, 0, 100, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 1)

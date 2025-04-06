@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0xawnpavx2d3"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_me0b0"]
+[ext_resource type="Texture2D" uid="uid://bafojxwijxmf0" path="res://assets/sprites/items/pills.png" id="2_me0b0"]
+
+[node name="pills" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_me0b0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_me0b0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-6, -142, -66, -134, -80, -120, -80, -76, -68, -66, -66, 120, -20, 138, 28, 136, 66, 120, 68, -66, 82, -78, 80, -124, 56, -136)

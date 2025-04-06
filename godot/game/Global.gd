@@ -33,12 +33,16 @@ var current_hand_type : HandType = HandType.DEFAULT
 var levels = [ 
 	preload("res://scenes/levels/level_lipstick.tscn"),			# Lippenstift auf Damenhandtasche
 	preload("res://scenes/levels/level_jeans_key.tscn"),			# Goldener Schlüssel aus Jeans
+	preload("res://scenes/levels/level_glass_misc.tscn"),			# Glass mit Zeug
+	preload("res://scenes/levels/level_cig_fannypack.tscn"),		# Zigarette aus Bauchtasche
 	preload("res://scenes/levels/level_backpack_pens.tscn"),		# Stift aus Rucksack
+	preload("res://scenes/levels/level_pills.tscn"),				# Pillen fürs Herz
 	preload("res://scenes/levels/level_bag_nuts.tscn"),			# Walnuss aus Papiertasche
 	preload("res://scenes/levels/level_glass_coin.tscn"),			# 2 EUR aus Glas
 	preload("res://scenes/levels/level_tools_wrench.tscn"),		# Maulschlüssel aus Toolbox
 	
-	preload("res://scenes/levels/level_bag_screws.tscn"),		# Maulschlüssel aus Toolbox
+	
+	preload("res://scenes/levels/level_bag_screws.tscn"),			# Schrauben aus paper bag
 	
 	
 	preload("res://scenes/levels/level_jellybeans.tscn")			# Jellybeans aus Jeans
@@ -76,7 +80,9 @@ enum HandType
 {
 	DEFAULT,
 	BURLY,
-	LADY
+	LADY,
+	DARK_LADY,
+	DARK_GUY
 }
 
 # mega ugly
@@ -97,6 +103,10 @@ func setup_hand_assembly(type: HandType):
 		new_ha = preload("res://scenes/hand_assembly_burly.tscn").instantiate()
 	elif type == HandType.LADY:
 		new_ha = preload("res://scenes/hand_assembly_lady.tscn").instantiate()
+	elif type == HandType.DARK_LADY:
+		new_ha = preload("res://scenes/hand_assembly_dark_lady.tscn").instantiate()
+	elif type == HandType.DARK_GUY:
+		new_ha = preload("res://scenes/hand_assembly_dark_guy.tscn").instantiate()
 	
 	root.add_child(new_ha)
 		
@@ -184,6 +194,8 @@ func state_game_go():
 	ui.show_game_start(false)
 	ui.show_instructions(false)
 	ui.show_game_ui(true)
+	
+	score.reset_stage()
 	
 	get_tree().paused = false
 

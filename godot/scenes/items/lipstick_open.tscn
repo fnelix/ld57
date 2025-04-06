@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpb8j7qnesxvb"]
+
+[ext_resource type="Script" uid="uid://cjxr8cp7ib1ay" path="res://game/object.gd" id="1_8qbx4"]
+[ext_resource type="Texture2D" uid="uid://bcwlq0sm6m6v6" path="res://assets/sprites/items/lipstick_open_bottom.png" id="2_8qbx4"]
+
+[node name="Lipstick_open" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_8qbx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8qbx4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-18, -116, -26, -106, -28, 0, -36, 10, -34, 114, -28, 130, -10, 136, 18, 136, 30, 132, 36, 118, 34, 10, 24.7077, -0.568787, 20, -50, 14, -90, -6, -114)
