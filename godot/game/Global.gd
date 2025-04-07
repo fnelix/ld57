@@ -17,6 +17,7 @@ enum ContinueStates {
 	INIT,
 	START_CONTINUE,
 	INSTRUCTIONS_CONTINUE,
+	IN_GAME,
 	LEVEL_CONTINUE,
 	GAME_CONTINUE,
 	RES3
@@ -25,6 +26,8 @@ enum ContinueStates {
 var state_continue : ContinueStates = ContinueStates.INIT
 
 var flag_continue = false
+
+var flag_reset = false
 
 var current_level = 0
 
@@ -281,6 +284,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		crunch_sfx_cooldown = 0
 	
+	# reset 
+	if flag_reset:
+		flag_reset = false
+		Global.reset()
+		return
+	
+	# continue pressed
 	if flag_continue:
 		flag_continue = false
 		
@@ -290,7 +300,7 @@ func _physics_process(delta: float) -> void:
 		elif state_continue == ContinueStates.INSTRUCTIONS_CONTINUE:
 	
 			state_game_go()
-			state_continue = ContinueStates.INVALID
+			state_continue = ContinueStates.IN_GAME
 			
 		elif state_continue == ContinueStates.LEVEL_CONTINUE:
 			
@@ -298,14 +308,13 @@ func _physics_process(delta: float) -> void:
 				state_game_win_game()
 			else:
 				state_game_next_level()
-				state_continue = ContinueStates.INVALID
-		
+				state_continue = ContinueStates.IN_GAME
+
 			
 			
 		elif state_continue == ContinueStates.GAME_CONTINUE:
 			
-			Input.action_press("x")
-			Input.action_release("x")
+			flag_reset = true
 		
 			state_continue = ContinueStates.INVALID
 		

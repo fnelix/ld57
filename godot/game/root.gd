@@ -12,18 +12,21 @@ func _physics_process(_delta):
 	
 
 	if Input.is_action_just_pressed("r"):
-		Global.reset_stage()
+		if Global.state_continue == Global.ContinueStates.IN_GAME:
+				Global.reset_stage()
 	
 	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = not get_tree().paused
+		if Global.state_continue == Global.ContinueStates.IN_GAME:
+			get_tree().paused = not get_tree().paused
 
 	if OS.is_debug_build():
 			
 		if Input.is_action_just_pressed("x"):
-			Global.reset()
+			Global.flag_reset = true
 			
 		if Input.is_action_just_pressed("next_level"):
-			Global.win_level()	
+			if Global.state_continue == Global.ContinueStates.IN_GAME:
+				Global.win_level()	
 	
 
 

@@ -86,10 +86,10 @@ func check_object(obj : Node):
 			
 	# all done?
 	if level_items_done.count(false) == 0:
-		print("you win!")
+		#print("you win!")
 		Global.win_level()
 	
-	print(level_items_done)
+	#print(level_items_done)
 	
 	if found_one:
 		return true

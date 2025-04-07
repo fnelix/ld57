@@ -45,7 +45,6 @@ func show_game_ui(value:bool):
 	
 	
 func flash_timer():
-	print("Blitz")
 	var tween = get_tree().create_tween() 
 	tween.parallel().tween_property(%LabelTime, "scale", Vector2(1,1.1), 0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.parallel().tween_property(%LabelTime, "modulate", Color.RED, 0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
