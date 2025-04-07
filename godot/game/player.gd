@@ -13,6 +13,9 @@ var hand_resetting:bool
 
 var hand_hold:bool
 
+var flag_hold_start=false
+var flag_hold_stop=false
+
 var position_drag_start: Vector2
 
 var hand : PhysicsBody2D
@@ -27,22 +30,52 @@ func _ready() -> void:
 	hand = get_node("../Hand")
 	hand.get_node("Sprite2D").texture = openTexture
 
+
 	
 func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		mouse_position = event.position
-	if Input.is_action_just_pressed("click"):
-		if true or mouse_on_player:
+		
+	var button_mask = Input.get_mouse_button_mask()
+	
+	# drag 
+	if (button_mask&MOUSE_BUTTON_MASK_LEFT) or Input.is_action_pressed("drag") or (button_mask&MOUSE_BUTTON_MASK_RIGHT) or Input.is_action_pressed("grab"):
+		if mouse_drag == false:
 			mouse_drag = true
-			mouse_drag_start = event.position
-			position_drag_start = self.global_position
-	elif event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_MASK_LEFT:
-			if event.pressed: # mouse down
-				pass
+			
+			if event is InputEventMouse or event is InputEventScreenTouch:
+				mouse_drag_start = event.position
 			else:
-				mouse_drag = false
+				mouse_drag_start = mouse_position
+			position_drag_start = self.global_position
+	else: # no button pressed
+		mouse_drag = false
+	
+	# grab
+	if button_mask&MOUSE_BUTTON_MASK_RIGHT or Input.is_action_pressed("grab"):
+		if not hand_hold:
+			flag_hold_start = true
+			flag_hold_stop = false
+	else:
+		if hand_hold:
+			flag_hold_stop = true
+		
+			
+		
+		
+	## old style:
+	#if Input.is_action_just_pressed("click"):
+		#if true or mouse_on_player:
+			#mouse_drag = true
+			#mouse_drag_start = event.position
+			#position_drag_start = self.global_position
+	#elif event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_MASK_LEFT or event.button_index == MOUSE_BUTTON_MASK_RIGHT:
+			#if event.pressed: # mouse down
+				#pass
+			#else: 
+				#mouse_drag = false
 	
 func reset():
 		for joint in hold_joints:
@@ -57,6 +90,8 @@ func reset():
 		hand.get_node("Sprite2D").texture = openTexture  #preload("res://assets/sprites/hand/hand_open.png")
 		
 		mouse_drag = false
+		flag_hold_start = false
+		flag_hold_stop = false
 		hand_hold = false
 		
 		hand_resetting = false
@@ -146,7 +181,9 @@ func _physics_process(delta: float) -> void:
 		
 		
 	
-	if mouse_drag and Input.is_action_pressed("right_click"):
+	#if mouse_drag and Input.is_action_pressed("right_click"):
+	if mouse_drag and flag_hold_start:
+		flag_hold_start = false
 		if not hand_hold:
 			# now holding
 			hand_hold = true
@@ -168,7 +205,10 @@ func _physics_process(delta: float) -> void:
 				_add_joint(body, body.global_position + axis * h * 0.5)
 					
 			hand.get_node("Sprite2D").texture = closedTexture #preload("res://assets/sprites/hand/hand_closed.png")
-	else:
+	
+	#else:
+	if flag_hold_stop:
+		flag_hold_stop = false
 		if hand_hold:
 			# now releasing
 			hand_hold = false

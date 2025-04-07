@@ -52,6 +52,6 @@ func _input(event: InputEvent) -> void:
 			
 			##
 			if touch_count_pre <= 1 and touch_count_post > 1:
-				Input.action_press("right_click")
+				Input.action_press("grab")
 			elif touch_count_pre > 1 and touch_count_post <= 1:
-				Input.action_release("right_click")	
+				Input.action_release("grab")	
