@@ -3,6 +3,7 @@ extends PhysicsBody2D
 @export var openTexture : Texture
 @export var closedTexture : Texture
 
+var mouse_position_valid: bool = false
 var mouse_position: Vector2
 var mouse_on_player: bool = false
 var mouse_drag: bool = false
@@ -36,11 +37,12 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		mouse_position = event.position
+		mouse_position_valid = true
 		
 	var button_mask = Input.get_mouse_button_mask()
 	
 	# drag 
-	if (button_mask&MOUSE_BUTTON_MASK_LEFT) or Input.is_action_pressed("drag") or (button_mask&MOUSE_BUTTON_MASK_RIGHT) or Input.is_action_pressed("grab"):
+	if mouse_position_valid and ((button_mask&MOUSE_BUTTON_MASK_LEFT) or Input.is_action_pressed("drag") or (button_mask&MOUSE_BUTTON_MASK_RIGHT) or Input.is_action_pressed("grab")):
 		if mouse_drag == false:
 			mouse_drag = true
 			
@@ -49,14 +51,14 @@ func _input(event: InputEvent) -> void:
 			else:
 				mouse_drag_start = mouse_position
 			position_drag_start = self.global_position
-	else: # no button pressed
+	elif mouse_drag: # no button pressed
 		mouse_drag = false
+		mouse_position_valid = false
 	
 	# grab
 	if button_mask&MOUSE_BUTTON_MASK_RIGHT or Input.is_action_pressed("grab"):
 		if not hand_hold:
 			flag_hold_start = true
-			flag_hold_stop = false
 	else:
 		if hand_hold:
 			flag_hold_stop = true
@@ -122,6 +124,8 @@ func hand_reset_start():
 	hand.collision_layer = 4 # hand layer
 	
 	mouse_drag = false
+	flag_hold_start = false
+	flag_hold_stop = false
 	hand_hold = false
 	
 	for joint in hold_joints:

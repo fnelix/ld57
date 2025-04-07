@@ -52,6 +52,17 @@ func _input(event: InputEvent) -> void:
 			
 			##
 			if touch_count_pre <= 1 and touch_count_post > 1:
-				Input.action_press("grab")
+				#Input.action_press("grab")
+				
+				var ev = InputEventAction.new()
+				ev.action = "grab"
+				ev.pressed = true
+				Input.parse_input_event(ev)
+				
 			elif touch_count_pre > 1 and touch_count_post <= 1:
-				Input.action_release("grab")	
+				#Input.action_release("grab")	
+				
+				var ev = InputEventAction.new()
+				ev.action = "grab"
+				ev.pressed = false
+				Input.parse_input_event(ev)
